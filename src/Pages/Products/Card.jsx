@@ -1,4 +1,5 @@
-export default function Card() {
+export default function Card({product}) {
+    console.log(product)
     return (
         <>
             <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg ">

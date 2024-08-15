@@ -1,6 +1,40 @@
+import { useState } from "react";
 import Card from "./Card";
+import { useEffect } from "react";
+import axios from "axios";
+import ReactPaginate from 'react-paginate';
+import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import './button.css'
+
+
+
 
 const Products = () => {
+
+    // paginate
+    const [data, setData] = useState();
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+
+
+    useEffect(() => {
+        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${6}`)
+            .then(data => {
+                setTotalPages(data.data.totalPages);
+                setData(data.data.result)
+            }).catch(error=>{
+                console.log(error)
+            })
+    }, [currentPage])
+
+
+
+    const handlePageChange = (e) => {
+        setCurrentPage(e.selected);
+    };
+
+
+
     return (
         <div className="max-w-7xl mx-auto space-y-12 mb-20">
 
@@ -38,10 +72,28 @@ const Products = () => {
             {/* product's card */}
             <div className="grid grid-cols-3 gap-10 ml-1">
 
-               <Card/>
-               
+                {
+                    data?.map((Data, i) => <Card key={i} product={Data} />)
+                }
 
             </div>
+
+            {/* button paginate here */}
+            <ReactPaginate
+                breakLabel="..."
+                previousLabel={<button className="btn btn-ghost bg-[#7EA1FF] btn-sm text-white font-bold"><GrCaretPrevious /></button>}
+                nextLabel={<button className="btn btn-ghost bg-[#7EA1FF] btn-sm text-white font-bold"><GrCaretNext /></button>}
+                onPageChange={handlePageChange}
+                pageRangeDisplayed={5}
+                pageCount={totalPages}
+                containerClassName="pagination-container"
+                pageClassName="pagination-page"
+                pageLinkClassName="pagination-link"
+                previousClassName="pagination-previous"
+                nextClassName="pagination-next"
+                breakClassName="pagination-break"
+                activeClassName="pagination-active"
+            />
 
         </div>
     );
