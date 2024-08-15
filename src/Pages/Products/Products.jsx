@@ -1,7 +1,9 @@
+import Card from "./Card";
+
 const Products = () => {
     return (
-        <div className="max-w-7xl mx-auto space-y-12">
-            
+        <div className="max-w-7xl mx-auto space-y-12 mb-20">
+
             <fieldset className="flex justify-center pt-10">
                 <div className="relative">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -32,6 +34,15 @@ const Products = () => {
                 </div>
 
             </div>
+
+            {/* product's card */}
+            <div className="grid grid-cols-3 gap-10 ml-1">
+
+               <Card/>
+               
+
+            </div>
+
         </div>
     );
 };
