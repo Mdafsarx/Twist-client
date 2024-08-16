@@ -1,27 +1,42 @@
-export default function Card({product}) {
-    console.log(product)
+export default function Card({ product }) {
+    const { productName, description, price, category, ratings, creationDate, image, brand } = product || {};
+    const Rating = Math.round(ratings)
+
     return (
         <>
             <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg ">
-                
+
                 <div className="px-4 py-2">
-                    <h1 className="text-xl font-bold text-gray-800 uppercase ">NIKE AIR</h1>
-                    <p className="mt-1 text-sm text-gray-600 ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus.
-                    </p>
+                    <h1 className="text-lg font-black text-[#3CA2FA] uppercase">{productName}</h1>
+                    <div className="flex items-center gap-2">
+                        <p><span className="font-bold">Brand:</span> {brand}</p>
+                        <p><span className="font-bold">Category:</span> {category}</p>
+                    </div>
+                    <p title={description}><span className="font-bold">Des:</span> {description.slice(0, 35)}....</p>
+                </div>
+
+                <div className="flex items-center justify-between px-4 py-2 bg-black">
+                    <button className="text-[#80EEB4] hover:underline">Details</button>
+                    <button className="btn btn-sm bg-[#3CA2FA] border-0 text-white">Add to cart</button>
                 </div>
 
                 <img
-                    className="object-cover w-full h-48 mt-2"
-                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
-                    alt="NIKE AIR"
+                    className="object-cover w-full h-48"
+                    src={image}
+                    alt={productName}
                 />
 
-                <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
-                    <h1 className="text-lg font-bold text-white">$129</h1>
-                    <button className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">
-                        Add to cart
-                    </button>
+                <div className="flex items-center justify-between px-4 py-2 bg-black">
+
+                    <h1 className="text-lg font-bold text-[#80EEB4]">${parseInt(price)}</h1>
+                    <div className="rating">
+                        <input type="radio" name="rating-2" className={`mask mask-star-2 ${Rating >= 1 ? 'bg-[#80EEB4]' : 'bg-[#80EEB44D] '}`} />
+                        <input type="radio" name="rating-2" className={`mask mask-star-2 ${Rating >= 2 ? 'bg-[#80EEB4]' : 'bg-[#80EEB44D] '}`} />
+                        <input type="radio" name="rating-2" className={`mask mask-star-2 ${Rating >= 3 ? 'bg-[#80EEB4]' : 'bg-[#80EEB44D] '}`} />
+                        <input type="radio" name="rating-2" className={`mask mask-star-2 ${Rating >= 4 ? 'bg-[#80EEB4]' : 'bg-[#80EEB44D] '}`} />
+                        <input type="radio" name="rating-2" className={`mask mask-star-2 ${Rating >= 5 ? 'bg-[#80EEB4]' : 'bg-[#80EEB44D] '}`} />
+                    </div>
+
                 </div>
 
             </div>
