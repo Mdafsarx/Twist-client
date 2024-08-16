@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import { SiTemporal } from "react-icons/si";
 
 const Navbar = () => {
 
@@ -46,7 +47,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div className="text-xl font-bold">Twist</div>
+                    <p className='text-xl font-black text-[#80EEB4] flex items-center gap-1'>Twist<SiTemporal className='rotate-6'/></p>
 
                 </div>
 

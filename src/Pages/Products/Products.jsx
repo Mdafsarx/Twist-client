@@ -16,6 +16,7 @@ const Products = () => {
     const [data, setData] = useState();
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [open,setOpen]=useState(false)
 
 
 
@@ -83,27 +84,25 @@ const Products = () => {
 
                     <select className="select select-bordered w-full max-w-52">
                         <option>All price</option>
-                        <option>1 - 500  <span>$</span></option>
-                        <option>500 - 1000 <span>$</span></option>
-                        <option>1000 - 1500 <span>$</span></option>
-                        <option>1500 - 2000  <span>$</span></option>
-                        <option>2000 - 2500  <span>$</span></option>
-                        <option>2500 - 3000  <span>$</span></option>
+                        <option>1 - 1000 <span>$</span></option>
+                        <option>1000 - 2000 <span>$</span></option>
+                        <option>2000 - 3000  <span>$</span></option>
                     </select>
 
                 </div>
 
                 {/* sort */}
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn m-1">Sort</div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>Price Low to high</a></li>
-                        <li><a>Item 2</a></li>
+                <div className="dropdown dropdown-left dropdown-end">
+                    <div onClick={()=>setOpen(true)} tabIndex={0} role="button" className="btn m-1 border-0 text-whit bg-[#80EEB4]">Sort</div>
+                    <ul tabIndex={0} className={`dropdown-content menu bg-[#80EEB4] rounded-box z-[1] w-44 p-0.5 shadow ${open ? 'block' :'hidden'}`}>
+                        <li onClick={()=>setOpen(false)}><a><span className="font-bold">Price:</span>high to low</a></li>
+                        <li onClick={()=>setOpen(false)}><a><span className="font-bold">Price:</span>low to high</a></li>
+                        <li onClick={()=>setOpen(false)}><a><span className="font-bold">Date:</span>Newest first</a></li>
                     </ul>
                 </div>
 
             </div>
-            
+
 
             {/* product's card */}
             <div className="grid grid-cols-3 gap-10 ml-1">
@@ -117,8 +116,8 @@ const Products = () => {
             {/* button paginate here */}
             <ReactPaginate
                 breakLabel="..."
-                previousLabel={<button className="btn btn-ghost bg-[#7EA1FF] btn-sm text-white font-bold"><GrCaretPrevious /></button>}
-                nextLabel={<button className="btn btn-ghost bg-[#7EA1FF] btn-sm text-white font-bold"><GrCaretNext /></button>}
+                previousLabel={<button className="btn btn-ghost bg-[#80EEB4] btn-sm text-black font-bold"><GrCaretPrevious /></button>}
+                nextLabel={<button className="btn btn-ghost bg-[#80EEB4] btn-sm text-black font-bold"><GrCaretNext /></button>}
                 onPageChange={handlePageChange}
                 pageRangeDisplayed={5}
                 pageCount={totalPages}
