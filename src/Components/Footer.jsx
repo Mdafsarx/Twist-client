@@ -5,7 +5,7 @@ import { SiFacebook, SiTemporal } from "react-icons/si";
 const Footer = () => {
     return (
         <footer className="bg-[#3CA2FA] text-white">
-            <div className="container px-6 py-[23.5px] mx-auto">
+            <div className="container px-6 py-[23.7px] mx-auto">
 
                 <div className="flex flex-col items-center text-center">
 

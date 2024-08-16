@@ -18,7 +18,7 @@ const Products = () => {
     const [finalSearch, setFinalSearch] = useState('')
 
     useEffect(() => {
-        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${6}&search=${finalSearch}`)
+        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}`)
             .then(data => {
                 setData(data.data.result)
                 setTotalPages(data.data.totalPages);
@@ -39,15 +39,15 @@ const Products = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto space-y-12 my-16">
+        <div className="max-w-7xl mx-auto space-y-7 md:space-y-12 my-16">
 
 
 
             {/* filter and sort */}
-            <div className="flex items-center justify-between ">
+            <div className="flex flex-col md:flex-row items-center justify-between ">
 
                 {/* filter , search*/}
-                <div className="flex items-center gap-5">
+                <div className="flex flex-col md:flex-row items-center gap-5">
 
                     {/* search... */}
                     <fieldset>
@@ -92,7 +92,7 @@ const Products = () => {
                 </div>
 
                 {/* sort */}
-                <div className="dropdown dropdown-left dropdown-end">
+                <div className="dropdown dropdown-left dropdown-end mt-4 md:mt-0">
                     <div onClick={() => setOpen(true)} tabIndex={0} role="button" className="btn m-1 border-0 text-whit bg-[#80EEB4]">Sort</div>
                     <ul tabIndex={0} className={`dropdown-content menu bg-[#80EEB4] rounded-box z-[1] w-44 p-0.5 shadow ${open ? 'block' : 'hidden'}`}>
                         <li onClick={() => setOpen(false)}><a><span className="font-bold">Price:</span>high to low</a></li>
@@ -105,7 +105,7 @@ const Products = () => {
 
 
             {/* product's card */}
-            <div className="grid grid-cols-3 gap-10 ml-1">
+            <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
 
                 {
                     data?.map((Data, i) => <Card key={i} product={Data} />)
