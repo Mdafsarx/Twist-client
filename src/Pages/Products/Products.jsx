@@ -15,17 +15,20 @@ const Products = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState('')
-    const [finalSearch, setFinalSearch] = useState('')
+    const [finalSearch, setFinalSearch] = useState('');
+    const [category, setCategory] = useState('');
+    const [brand, setBrand] = useState('');
+    const [price, setPrice] = useState(0)
 
     useEffect(() => {
-        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}`)
+        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}`)
             .then(data => {
                 setData(data.data.result)
                 setTotalPages(data.data.totalPages);
             }).catch(error => {
                 console.log(error)
             })
-    }, [currentPage, finalSearch])
+    }, [currentPage, finalSearch, category, brand , price ])
 
     const handlePageChange = (e) => {
         setCurrentPage(e.selected);
@@ -34,7 +37,6 @@ const Products = () => {
     const handleSearch = () => {
         setFinalSearch(search)
     }
-
 
 
 
@@ -64,29 +66,47 @@ const Products = () => {
                     </fieldset>
 
                     {/* filter */}
-                    <select className="select select-bordered w-full max-w-52">
-                        <option>All categories</option>
-                        <option>Televisions</option>
-                        <option>Audio</option>
-                        <option>Wearables</option>
-                        <option>Computers</option>
-                        <option>Accessories</option>
+                    <select className="select select-bordered w-full max-w-52" onChange={(e) => {
+                        if (e.target.value === 'All categories') {
+                            setCategory('')
+                        } else {
+                            setCategory(e.target.value)
+                        }
+                    }}>
+                        <option value={'All categories'}>All categories</option>
+                        <option value={'Televisions'}>Televisions</option>
+                        <option value={'Audio'}>Audio</option>
+                        <option value={'Wearables'}>Wearables</option>
+                        <option value={'Computers'}>Computers</option>
+                        <option value={'Accessories'}>Accessories</option>
                     </select>
 
-                    <select className="select select-bordered w-full max-w-52">
+                    <select className="select select-bordered w-full max-w-52" onChange={(e) => {
+                        if (e.target.value === 'All brands') {
+                            setBrand('')
+                        } else {
+                            setBrand(e.target.value)
+                        }
+                    }}>
                         <option>All brands</option>
-                        <option>Sound wave</option>
-                        <option>Fit gear</option>
-                        <option>Power tech</option>
-                        <option>Vision plus</option>
-                        <option>Game master</option>
+                        <option value={'SoundWave'}>Sound wave</option>
+                        <option value={'FitGear'}>Fit gear</option>
+                        <option value={'PowerTech'}>Power tech</option>
+                        <option value={'VisionPlus'}>Vision plus</option>
+                        <option value={'GameMaster'}>Game master</option>
                     </select>
 
-                    <select className="select select-bordered w-full max-w-52">
+                    <select className="select select-bordered w-full max-w-52" onChange={(e) => {
+                        if (e.target.value === 'All price') {
+                            setPrice('')
+                        } else {
+                            setPrice(e.target.value)
+                        }
+                    }}>
                         <option>All price</option>
-                        <option>1 - 1000 <span>$</span></option>
-                        <option>1000 - 2000 <span>$</span></option>
-                        <option>2000 - 3000  <span>$</span></option>
+                        <option value={'1-1000'}>1-1000 <span>$</span></option>
+                        <option value={'1000-2000'}>1000-2000 <span>$</span></option>
+                        <option value={'2000-3000'}>2000-3000  <span>$</span></option>
                     </select>
 
                 </div>
