@@ -5,6 +5,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 import "./button.css";
+import toast from "react-hot-toast";
 
 const Products = () => {
     // paginate
@@ -21,18 +22,16 @@ const Products = () => {
     const [sort, setSort] = useState('');
 
 
-
     useEffect(() => {
-        axios(
-            `${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
+        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
             .then((data) => {
                 setData(data.data.result);
                 setTotalPages(data.data.totalPages);
             })
             .catch((error) => {
-                console.log(error);
+                toast.error(error);
             });
-    }, [currentPage, finalSearch, category, brand, price , sort]);
+    }, [currentPage, finalSearch, category, brand, price, sort]);
 
     const handlePageChange = (e) => {
         setCurrentPage(e.selected);
@@ -157,6 +156,7 @@ const Products = () => {
                     <option value={"low to high"}>Price: low to high</option>
                     <option value={"high to low"}>Price: high to low</option>
                     <option value={"newest first"}>Date:  Newest first</option>
+                    <option value={"oldest first"}>Date:  oldest first</option>
                 </select>
 
             </div>
