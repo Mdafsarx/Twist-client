@@ -19,15 +19,9 @@ Welcome to Twist , your ultimate solution for discovering, filtering, and managi
 
 
 ## NPM Packages Used
-- @tanstack/react-query
+- react-paginate
 - react-router-dom
-- react-simple-typewriter
-- react-spinners
-- stripe
-- swiper
-
-
-
+- react-hot-toast
 
 
 ## Getting Started
