@@ -1,7 +1,6 @@
 export default function Card({ product }) {
     const { productName, description, price, category, ratings, creationDate, image, brand } = product || {};
     const Rating = Math.round(ratings)
-
     return (
         <>
             <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto">
@@ -17,6 +16,7 @@ export default function Card({ product }) {
                         <p><span className="font-bold">Category</span> {category}</p>
                     </div>
                     <p title={description} className="hidden md:block"><span className="font-bold">Des:</span> {description.slice(0, 35)}....</p>
+                    <p><span className="font-bold">Date:</span> {creationDate}</p>
                 </div>
 
                 <div className="flex items-center justify-between px-4 py-2 bg-black">

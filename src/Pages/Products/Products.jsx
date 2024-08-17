@@ -18,12 +18,13 @@ const Products = () => {
     const [category, setCategory] = useState("");
     const [brand, setBrand] = useState("");
     const [price, setPrice] = useState(0);
+    const [sort, setSort] = useState('');
+
+
 
     useEffect(() => {
         axios(
-            `${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1
-            }&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}`
-        )
+            `${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
             .then((data) => {
                 setData(data.data.result);
                 setTotalPages(data.data.totalPages);
@@ -31,7 +32,7 @@ const Products = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [currentPage, finalSearch, category, brand, price]);
+    }, [currentPage, finalSearch, category, brand, price , sort]);
 
     const handlePageChange = (e) => {
         setCurrentPage(e.selected);
@@ -149,37 +150,15 @@ const Products = () => {
                 </div>
 
                 {/* sort */}
-                <div className="dropdown dropdown-left dropdown-end mt-4 md:mt-0">
-                    <div
-                        onClick={() => setOpen(true)}
-                        tabIndex={0}
-                        role="button"
-                        className="btn m-1 border-0 text-whit bg-[#80EEB4]"
-                    >
-                        Sort
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className={`dropdown-content menu bg-[#80EEB4] rounded-box z-[1] w-44 p-0.5 shadow ${open ? "block" : "hidden"
-                            }`}
-                    >
-                        <li onClick={() => setOpen(false)}>
-                            <a>
-                                <span className="font-bold">Price:</span>high to low
-                            </a>
-                        </li>
-                        <li onClick={() => setOpen(false)}>
-                            <a>
-                                <span className="font-bold">Price:</span>low to high
-                            </a>
-                        </li>
-                        <li onClick={() => setOpen(false)}>
-                            <a>
-                                <span className="font-bold">Date:</span>Newest first
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <select className="select select-bordered w-full max-w-24 bg-[#80EEB4] text-white mt-4 md:mt-0" onClick={(e) => {
+                    setSort(e.target.value)
+                }}>
+                    <option value={""} disabled selected>Sort</option>
+                    <option value={"low to high"}>Price: low to high</option>
+                    <option value={"high to low"}>Price: high to low</option>
+                    <option value={"newest first"}>Date:  Newest first</option>
+                </select>
+
             </div>
 
             {/* product's card */}
