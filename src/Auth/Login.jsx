@@ -1,32 +1,37 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import toast from "react-hot-toast"
 
 
 export default function Login() {
 
-    const { Google , LoginUser}=useContext(AuthContext);
+    const { Google, LoginUser } = useContext(AuthContext);
+    const navLink = useNavigate()
 
-    const handleGoogle=()=>{
+    const handleGoogle = () => {
         Google()
-        .then((result)=>{
-          if(result.user)toast.success('Login successful')
-        }).catch(error=>{
-             toast.error(error.message)
-        })
-     }
+            .then((result) => {
+                if (result.user) {
+                    toast.success('Login successful');
+                    navLink('/')
+                }
+            }).catch(error => {
+                toast.error(error.message)
+            })
+    }
 
-     function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-        LoginUser(email,password)
-        .then(()=>{
-               toast.success('Login Successful')
-        }).catch(error=>toast.error(error.message))
-     }
- 
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        LoginUser(email, password)
+            .then(() => {
+                toast.success('Login Successful')
+                navLink('/')
+            }).catch(error => toast.error(error.message))
+    }
+
 
 
 
@@ -62,19 +67,19 @@ export default function Login() {
                     <div className="space-y-4">
 
                         <div>
-                            <input type="email" name="email" id="email" placeholder="Email address" className="w-full px-3 py-2 border rounded-md  " required/>
+                            <input type="email" name="email" id="email" placeholder="Email address" className="w-full px-3 py-2 border rounded-md  " required />
                         </div>
 
                         <div>
-                            <input type="password" name="password" id="password" placeholder="Password" className="w-full px-3 py-2 border rounded-md  " required/>
+                            <input type="password" name="password" id="password" placeholder="Password" className="w-full px-3 py-2 border rounded-md  " required />
                         </div>
 
                     </div>
 
-                    <button type="submit" className="w-full btn rounded-md bg-[#80EEB4] text-black">Login</button>
+                    <button type="submit" className="w-full btn rounded-md bg-[#80EEB4] hover:bg-[#80EEB4B3] border-0 text-black">Login</button>
 
                 </form>
-                
+
             </div>
 
         </div>

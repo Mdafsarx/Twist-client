@@ -6,14 +6,14 @@ import ReactPaginate from "react-paginate";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 import "./button.css";
 import toast from "react-hot-toast";
+import { ColorRing, Grid } from "react-loader-spinner";
 
 const Products = () => {
     // paginate
     //Todo: paginate api buja
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
-    const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [finalSearch, setFinalSearch] = useState("");
     const [category, setCategory] = useState("");
@@ -33,6 +33,7 @@ const Products = () => {
             });
     }, [currentPage, finalSearch, category, brand, price, sort]);
 
+
     const handlePageChange = (e) => {
         setCurrentPage(e.selected);
     };
@@ -42,13 +43,13 @@ const Products = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto space-y-7 md:space-y-12 my-16">
+        <div className="max-w-7xl mx-auto space-y-7 md:space-y-12 my-16 pt-10">
             {/* filter and sort */}
             <div className="flex flex-col md:flex-row items-center justify-between ">
                 {/* filter , search*/}
-                <div className="flex flex-col md:flex-row items-center gap-5">
+                <div className="flex flex-col md:flex-row items-center gap-5" >
                     {/* search... */}
-                    <fieldset>
+                    <fieldset data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
                         <div className="relative">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <button
@@ -89,7 +90,7 @@ const Products = () => {
                                 // setBrand('');
                                 // setPrice(0)
                             }
-                        }}
+                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600"
                     >
                         <option value={"All categories"}>All categories</option>
                         <option value={"Televisions"}>Televisions</option>
@@ -111,7 +112,7 @@ const Products = () => {
                                 // setCategory('')
                                 // setPrice(0)
                             }
-                        }}
+                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900"
                     >
                         <option>All brands</option>
                         <option value={"SoundWave"}>Sound wave</option>
@@ -133,7 +134,7 @@ const Products = () => {
                                 // setBrand('')
                                 // setCategory('')
                             }
-                        }}
+                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1200"
                     >
                         <option>All price</option>
                         <option value={"1-1000"}>
@@ -151,7 +152,7 @@ const Products = () => {
                 {/* sort */}
                 <select className="select select-bordered w-full max-w-24 bg-[#80EEB4] text-white mt-4 md:mt-0" onClick={(e) => {
                     setSort(e.target.value)
-                }}>
+                }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1500">
                     <option value={""} disabled selected>Sort</option>
                     <option value={"low to high"}>Price: low to high</option>
                     <option value={"high to low"}>Price: high to low</option>
@@ -162,11 +163,19 @@ const Products = () => {
             </div>
 
             {/* product's card */}
-            <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
-                {data?.map((Data, i) => (
-                    <Card key={i} product={Data} />
-                ))}
-            </div>
+            <>
+                {
+                    data?.length === 0
+                        ? <div className="flex flex-col items-center justify-center min-h-[25vh]">
+                            <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading"  wrapperClass="color-ring-wrapper"  colors={['#3CA2FA','#80EEB4','#3CA2FA','#80EEB4','#3CA2FA']}/>
+                        </div>
+                        : <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
+                            {data?.map((Data, i) => (
+                                <Card key={i} product={Data} />
+                            ))}
+                        </div>
+                }
+            </>
 
             {/* button paginate here */}
             <ReactPaginate

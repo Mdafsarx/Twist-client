@@ -9,18 +9,18 @@ const Footer = () => {
 
                 <div className="flex flex-col items-center text-center">
 
-                    <p className='text-2xl font-black font-serif text-[#80EEB4] flex items-center gap-1'>Twist<SiTemporal className='rotate-6' /></p>
+                    <p className='text-2xl font-black font-serif text-[#80EEB4] flex items-center gap-1' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='rotate-6' /></p>
 
                     <div className="flex flex-wrap justify-center mt-6 -mx-4">
 
-                        <a className="mx-4 text-sm font-bold text-[#FF0000] hover:underline">
+                        <a href='https://www.youtube.com/@mdafsarr9098' target='_blank' className="mx-4 text-sm font-bold text-[#FF0000] hover:underline" >
                             Youtube
                         </a>
-                        <a className="mx-4 text-sm font-bold text-[#000000] hover:underline">
+                        <a href='https://x.com/MDAFSARX' target='_blank' className="mx-4 text-sm font-bold text-[#000000] hover:underline">
                             Twitter
                         </a>
 
-                        <a className="mx-4 text-sm font-bold text-[#F700C0] hover:underline">
+                        <a href='https://www.instagram.com' target='_blank' className="mx-4 text-sm font-bold text-[#F700C0] hover:underline">
                             Instagram
                         </a>
                        

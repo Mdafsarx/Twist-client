@@ -3,7 +3,7 @@ export default function Card({ product }) {
     const Rating = Math.round(ratings)
     return (
         <>
-            <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto">
+            <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto" data-aos="fade-up" data-aos-duration="1000" >
 
                 <div className="px-4 py-2">
                     <h1 className="md:text-lg font-black text-[#3CA2FA] uppercase">{productName}</h1>
@@ -21,7 +21,7 @@ export default function Card({ product }) {
 
                 <div className="flex items-center justify-between px-4 py-2 bg-black">
                     <button className="text-[#80EEB4] hover:underline">Details</button>
-                    <button className="btn btn-sm bg-[#3CA2FA] border-0 text-white">Add to cart</button>
+                    <button className="btn btn-sm bg-[#3CA2FA] hover:bg-[#3CA2FA] hover:text-black border-0 text-white">Add to cart</button>
                 </div>
 
                 <img
