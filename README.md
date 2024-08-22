@@ -1,8 +1,57 @@
-# React + Vite
+# Twist
+Welcome to Twist , your ultimate solution for discovering, filtering, and managing products effortlessly through a responsive, user-friendly interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Site
 
-Currently, two official plugins are available:
+- Visit our live site [here](https://twistt.netlify.app)
+- Server site [here](https://github.com/Mdafsarx/Twist-server)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+1. **Search and Filter:**
+   - Search for products by name.
+   - Filter by brand, category, and price range, with multi-filter functionality.
+
+2. **Sorting and Pagination:**
+   - Sort products by price or date added.
+   - Paginate results for smoother product browsing.
+
+
+
+## NPM Packages Used
+- react-paginate
+- react-router-dom
+- react-hot-toast
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+Make sure you have Node.js and npm (or yarn) installed on your development machine.
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/your-project.git
+   
+   Navigate into the project directory: cd your-project
+
+   Install dependencies:
+   
+   npm install
+   or
+   yarn install
+
+   To run the project locally, use the following command:
+   npm start
+   or
+   yarn start
+
+##  Additional Notes:
+Replace your-username and your-project with your actual GitHub username and project repository name.
+
+ 
