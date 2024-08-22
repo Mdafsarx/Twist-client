@@ -13,19 +13,19 @@ import img9 from "../../assets/9.png"
 
 export default function Marque() {
     return (
-        <div className='bg-whit'>
+        <div className='mb-4'>
 
             <Marquee>
-                <div className='flex items-center gap-20 p-4'>
-                    <img src={img} alt="" className='w-28 ml-12' />
-                    <img src={img2} alt="" className='w-28' />
-                    <img src={img3} alt="" className='w-28' />
-                    <img src={img4} alt="" className='w-28' />
-                    <img src={img5} alt="" className='w-28' />
-                    <img src={img6} alt="" className='w-28' />
-                    <img src={img7} alt="" className='w-28' />
-                    <img src={img8} alt="" className='w-28' />
-                    <img src={img9} alt="" className='w-28' />
+                <div className='flex items-center gap-20 p-4 md:p-6 border-b-2 border-[#80EEB4]'>
+                    <img src={img} alt="" className='w-20 md:w-28 ml-12' />
+                    <img src={img2} alt="" className='w-20 md:w-28' />
+                    <img src={img3} alt="" className='w-20 md:w-28' />
+                    <img src={img4} alt="" className='w-20 md:w-28' />
+                    <img src={img6} alt="" className='w-20 md:w-28' />
+                    <img src={img7} alt="" className='w-20 md:w-28' />
+                    <img src={img5} alt="" className='w-20 md:w-28' />
+                    <img src={img8} alt="" className='w-20 md:w-28' />
+                    <img src={img9} alt="" className='w-20 md:w-28' />
                 </div>
             </Marquee>
 
