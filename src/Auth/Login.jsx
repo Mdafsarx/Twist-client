@@ -37,7 +37,7 @@ export default function Login() {
 
 
     return (
-        <div className="flex justify-center my-10 px-6 md:px-0">
+        <div className="flex justify-center my-10 px-6 md:px-0 pt-16">
 
             <div className="w-full max-w-md p-4 sm:p-10 bg-white rounded-2xl">
 

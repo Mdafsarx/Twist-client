@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { SiTemporal } from "react-icons/si";
+import "./css.css"
+
 
 const Navbar = () => {
 
@@ -24,7 +26,7 @@ const Navbar = () => {
         <>
             <div className="navbar bg-[#3CA2FAF2] md:px-7 font-serif text-white fixed top-0 w-full z-50">
 
-                <div className="navbar-start">
+                <div className="navbar-start md:pl-8">
 
                     {/* small device */}
                     <div className="dropdown text-black">
@@ -49,19 +51,19 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <p className='text-xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
+                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
 
                 </div>
 
                 {/* center */}
-                <div className="navbar-center hidden lg:flex font-bold">
+                <div className="navbar-center hidden lg:flex font-bold pr-4">
                     <ul className="flex items-center gap-7">
                         {pages}
                     </ul>
                 </div>
 
                 {/* nav-end */}
-                <div className="navbar-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <div className="navbar-end bg-[#80EEB4] p-2 h-[60px] pr-4 md:pr-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
 
                     {
                         loading
@@ -72,16 +74,16 @@ const Navbar = () => {
                                         ?
                                         <div className="flex items-center gap-2.5">
 
-                                            <button title="Logout" onClick={handleLogout} className="font-bold hover:text-[#80EEB4] hover:underline">Logout</button>
+                                            <button title="Logout" onClick={handleLogout} className="font-bold hover:text-[#3CA2FA] hover:underline">Logout</button>
                                             <div className="avatar placeholder" title={User?.displayName}>
-                                                <div className="bg-neutral w-8 rounded-full ring-[#80EEB4] ring">
+                                                <div className="bg-neutral w-8 rounded-full ring-[#3CA2FA] ring">
                                                     <img src={User?.photoURL} alt="Profile" referrerPolicy="no-referrer" />
                                                 </div>
                                             </div>
 
                                         </div>
                                         :
-                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#80EEB4] border-2' : 'hover:text-[#80EEB4] hover:underline'}>Login</NavLink>
+                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#3CA2FA] border-2' : 'hover:text-[#3CA2FA] hover:underline'}>Login</NavLink>
                                 }
                             </>
                     }

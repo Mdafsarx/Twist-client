@@ -43,7 +43,7 @@ const Products = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto space-y-7 md:space-y-12 my-16 pt-10">
+        <div className="max-w-7xl mx-auto space-y-7 md:space-y-16 my-12 pt-10  md:pb-4 md:pt-20">
             {/* filter and sort */}
             <div className="flex flex-col md:flex-row items-center justify-between ">
                 {/* filter , search*/}
@@ -150,7 +150,7 @@ const Products = () => {
                 </div>
 
                 {/* sort */}
-                <select className="select select-bordered w-full max-w-24 bg-[#80EEB4] text-white mt-4 md:mt-0" onClick={(e) => {
+                <select className="select select-bordered w-full max-w-24 mt-4 md:mt-0" onClick={(e) => {
                     setSort(e.target.value)
                 }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1500">
                     <option value={""} disabled selected>Sort</option>

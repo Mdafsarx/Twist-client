@@ -39,7 +39,7 @@ export default function Register() {
 
 
     return (
-        <div className="flex items-center min-h-[61.5vh] p-6 md:p-0 md:my-10">
+        <div className="flex items-center min-h-[61.5vh] p-6 md:p-0 mt-16 md:mt-24 md:mb-8 ">
 
             <section className="max-w-4xl p-6 mx-auto bg-white rounded-md ">
 

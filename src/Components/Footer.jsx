@@ -9,7 +9,7 @@ const Footer = () => {
 
                 <div className="flex flex-col items-center text-center">
 
-                    <p className='text-2xl font-black font-serif text-[#80EEB4] flex items-center gap-1' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='rotate-6' /></p>
+                    <p className='text-2xl font-black font-serif text-[#80EEB4] flex items-center gap-1' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
 
                     <div className="flex flex-wrap justify-center mt-6 -mx-4">
 

@@ -1,0 +1,7 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: var(--navbar-padding, 0rem );
+    min-height: 0rem /* 64px */;
+    width: 100%;
+}
