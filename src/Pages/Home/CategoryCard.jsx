@@ -10,7 +10,7 @@ export default function CategoryCard({product}) {
                     alt={productName} />
 
                 <div className="p-4 text-left">
-                    <h2 className="block text-xl font-bold">{productName}</h2>
+                    <h2 className="block text-xl font-bold" title={productName}>{productName.slice(0,20)}...</h2>
                   <div className="flex items-center justify-between pt-1">
                       <p className="text-sm">${price}</p>
                       <button className="btn btn-sm text-xs bg-[#80EEB4] hover:bg-[#3CA2FA] hover:text-white border-0 text-black">Add to cart</button>
