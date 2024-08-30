@@ -11,6 +11,7 @@ import { data } from 'autoprefixer';
 export default function Category() {
 
     const [Data, setData] = useState([]);
+    const [more,setMore]= useState(false)
 
     useEffect(() => {
         axios(`http://localhost:3000/Product`)
@@ -23,7 +24,7 @@ export default function Category() {
 
 
     return (
-        <section className="text-white pb-14 pt-6 max-w-6xl mx-auto">
+        <section className="text-white pb-10 pt-6 max-w-6xl mx-auto">
 
             {/* computers */}
             <div className="flex gap-5 pb-10 border-b border-[#80EEB4]">
@@ -55,7 +56,7 @@ export default function Category() {
             </div>
 
             {/* televisions */}
-            <div className="flex gap-5 py-10 border-b border-[#80EEB4]">
+            <div className={`flex gap-5 py-10 ${more ? 'border-b':''}  border-[#80EEB4]`}>
 
                 {/* category name and title */}
                 <div className='w-[25%]'>
@@ -84,7 +85,7 @@ export default function Category() {
             </div>
 
             {/* accessories */}
-            <div className="flex gap-5 py-10 ">
+            <div className={`${more ? "flex" : "hidden"} gap-5 py-10`}>
 
                 {/* category name and title */}
                 <div className='w-[25%]'>
@@ -112,8 +113,9 @@ export default function Category() {
 
             </div>
 
-            <div className='flex justify-center'>
-                <button className="btn btn-outline  hover:bg-[#3CA2FA] hover:text-white border-[#80EEB4] text-white">More</button>
+            {/* more button */}
+            <div className={`${more ? "hidden" : "flex"} flex justify-center`}>
+                <button onClick={()=>setMore(true)} className="btn btn-outline  hover:bg-gray-900 hover:border-[#3CA2FA] border-[#80EEB4] text-white">More</button>
             </div>
 
         </section>

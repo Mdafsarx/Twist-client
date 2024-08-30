@@ -69,7 +69,7 @@ const TopItems = () => {
                     <div className="flex justify-center">
                         <div className="space-y-1 text-center">
                             <h1 className="uppercase text-green-600 font-semibold">#most popular</h1>
-                            <p className="text-2xl font-black">Laptop</p>
+                            <p className="text-2xl font-black">Watch</p>
                             <button className="uppercase font-normal pt-0.5 border-b-2 border-black hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</button>
                         </div>
                     </div>
