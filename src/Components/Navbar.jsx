@@ -14,11 +14,11 @@ const Navbar = () => {
 
     const pages =
         <>
-            <NavLink to={'/'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">Home</NavLink>
+            <NavLink to={'/'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'} >Home</NavLink>
 
-            <NavLink to={'/Products'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">Product's</NavLink>
+            <NavLink to={'/Products'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}>Product's</NavLink>
 
-            <NavLink to={'/Contact'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900">contact</NavLink>
+            <NavLink to={'/Contact'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}>contact</NavLink>
         </>
 
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
+                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
 
                 </div>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
                                 {
                                     User
                                         ?
-                                        <div className="flex items-center gap-2.5" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                                        <div className="flex items-center gap-2.5" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
 
                                             <button title="Logout" onClick={handleLogout} className="font-bold hover:text-[#3CA2FA] hover:underline">Logout</button>
                                             <div className="avatar placeholder" title={User?.displayName}>
@@ -83,7 +83,7 @@ const Navbar = () => {
 
                                         </div>
                                         :
-                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#3CA2FA] border-2' : 'hover:text-[#3CA2FA] hover:underline'} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">Login</NavLink>
+                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#3CA2FA] border-2' : 'hover:text-[#3CA2FA] hover:underline'} data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">Login</NavLink>
                                 }
                             </>
                     }

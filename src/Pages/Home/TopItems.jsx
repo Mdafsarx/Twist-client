@@ -16,8 +16,8 @@ const TopItems = () => {
 
             <div className="grid grid-cols-4 gap-4">
 
-                <div className="bg-[#F9D9DA] col-span-2 h-80 relative pl-10 pr-16">
-                    <figure>
+                <div className="bg-[#F9D9DA] col-span-2 h-80 relative pl-10 pr-16" data-aos="zoom-in" data-aos-duration="1000">
+                    <figure >
                         <img src={img9} className="size-72 absolute bottom-0 -mb-[25.2px]" />
                     </figure>
 
@@ -30,7 +30,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#DAF3ED] h-80 relative pt-8">
+                <div className="bg-[#DAF3ED] h-80 relative pt-8" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
 
                     <figure className="flex justify-center">
                         <img src={img12} className="size-52 absolute bottom-0 -mb-6" />
@@ -46,7 +46,7 @@ const TopItems = () => {
 
                 </div>
 
-                <div className="bg-[#FFEDCD] row-span-2 relative">
+                <div className="bg-[#FFEDCD] row-span-2 relative" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <figure>
                         <img src={img2} className="size-80 absolute bottom-0" />
                     </figure>
@@ -60,7 +60,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#89f0d2F2] h-80 relative pt-8">
+                <div className="bg-[#89f0d2F2] h-80 relative pt-8" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900">
 
                     <figure className="flex justify-center">
                         <img src={img7} className="size-44 absolute bottom-0 " />
@@ -75,7 +75,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#D8DBEC] col-span-2 h-80 relative pl-10 pr-20">
+                <div className="bg-[#D8DBEC] col-span-2 h-80 relative pl-10 pr-20" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1200">
                     <figure>
                         <img src={img} className="size-72 absolute bottom-0 -mb-[37px]" />
                     </figure>

@@ -3,10 +3,10 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 export default function Contact() {
   return (
-    <div className='flex justify-center items-center text-4xl md:text-6xl  text-white'>
-      <section className="min-h-screen lg:flex">
+    <div className='flex justify-center items-center text-4xl md:text-6xl  text-white pt-14 md:pt-0'>
+      <section className="min-h-screen lg:flex ">
 
-        <div className="flex flex-col justify-center w-full p-8 lg:px-12 xl:px-32 lg:w-1/2">
+        <div className="flex flex-col justify-center w-full p-8 lg:px-12 xl:px-32 lg:w-1/2" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
           <h1 className="text-2xl font-light capitalize  lg:text-4xl">hire us.</h1>
           <p className="mt-4 font-bold">
             Ask us everything and we would love to hear from you
@@ -92,7 +92,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center w-full h-64 lg:w-1/2 lg:h-auto">
+        <div className="flex justify-center items-center w-full h-64 lg:w-1/2 lg:h-auto mt-16 md:mt-0 mb-28 md:mb-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
           <form onSubmit={(e) => {
             e.preventDefault()
             Swal.fire({

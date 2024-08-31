@@ -2,7 +2,7 @@ export default function CategoryCard({product}) {
     const { productName, description, price, category, ratings, creationDate, image, brand } = product || {};
 
     return (
-        <div>
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
             <div className="w-full max-w-xs overflow-hidden border-2 rounded pb-2.5">
                 <img
                     className="object-cover w-full h-56"

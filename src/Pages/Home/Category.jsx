@@ -30,7 +30,7 @@ export default function Category() {
             <div className="flex gap-5 pb-10 border-b border-[#80EEB4]">
 
                 {/* category name and title */}
-                <div className='w-[25%]'>
+                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Computers</h1>
                     <p>All the power I need in one sleek device.</p>
                     <button className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</button>
@@ -59,7 +59,7 @@ export default function Category() {
             <div className={`flex gap-5 py-10 ${more ? 'border-b':''}  border-[#80EEB4]`}>
 
                 {/* category name and title */}
-                <div className='w-[25%]'>
+                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Televisions</h1>
                     <p>Watching TV Becomes a Fully Immersive Experience.</p>
                     <button className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</button>
@@ -88,7 +88,7 @@ export default function Category() {
             <div className={`${more ? "flex" : "hidden"} gap-5 py-10`}>
 
                 {/* category name and title */}
-                <div className='w-[25%]'>
+                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>accessories</h1>
                     <p>Accessories are the exclamation point of any outfit.</p>
                     <button className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</button>
@@ -114,7 +114,7 @@ export default function Category() {
             </div>
 
             {/* more button */}
-            <div className={`${more ? "hidden" : "flex"} flex justify-center`}>
+            <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
                 <button onClick={()=>setMore(true)} className="btn btn-outline  hover:bg-gray-900 hover:border-[#3CA2FA] border-[#80EEB4] text-white">More</button>
             </div>
 
