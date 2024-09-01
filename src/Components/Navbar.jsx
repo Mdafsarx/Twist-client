@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { SiTemporal } from "react-icons/si";
+import { FaCartShopping } from "react-icons/fa6";
 import "./css.css"
 
 
@@ -19,6 +20,8 @@ const Navbar = () => {
             <NavLink to={'/Products'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}>Product's</NavLink>
 
             <NavLink to={'/Contact'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}>contact</NavLink>
+
+            <NavLink to={'/Cart'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}><span className="flex"><FaCartShopping /></span></NavLink>
         </>
 
 
@@ -57,7 +60,7 @@ const Navbar = () => {
 
                 {/* center */}
                 <div className="navbar-center hidden lg:flex font-bold pr-4">
-                    <ul className="flex items-center gap-7">
+                    <ul className="flex items-center gap-7 -ml-11">
                         {pages}
                     </ul>
                 </div>
@@ -67,7 +70,7 @@ const Navbar = () => {
 
                     {
                         loading
-                            ? <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300"/>
+                            ? <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" />
                             : <>
                                 {
                                     User

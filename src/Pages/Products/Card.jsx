@@ -1,6 +1,39 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Auth/AuthProvider";
+import axios from "axios";
+import toast from "react-hot-toast";
+
 export default function Card({ product }) {
     const { productName, description, price, category, ratings, creationDate, image, brand } = product || {};
     const Rating = Math.round(ratings)
+    const { User } = useContext(AuthContext);
+    const newProduct = { productName, description, price, category, ratings, creationDate, image, brand, email: User?.email }
+    const handleCart = () => {
+        if (!User?.email) return toast.error("Login first", {
+            style: {
+                borderRadius: '10px',
+                background: '#000000',
+                color: '#fff',
+            },
+        })
+        axios.post(`http://localhost:3000/Cart`, newProduct)
+            .then(data => {
+                if (data.data.insertedId) toast.success("Added successful", {
+                    style: {
+                        borderRadius: '10px',
+                        background: '#000000',
+                        color: '#fff',
+                    },
+                })
+            })
+            .catch(error => toast.error(error.message, {
+                style: {
+                    borderRadius: '10px',
+                    background: '#000000',
+                    color: '#fff',
+                },
+            }))
+    }
     return (
         <>
             <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto" data-aos="fade-up" data-aos-duration="1000" >
@@ -21,7 +54,7 @@ export default function Card({ product }) {
 
                 <div className="flex items-center justify-between px-4 py-2 bg-black">
                     <button className="text-[#80EEB4] hover:underline">Details</button>
-                    <button className="btn btn-sm bg-[#3CA2FA] hover:bg-[#3CA2FA] hover:text-black border-0 text-white">Add to cart</button>
+                    <button onClick={handleCart} className="btn btn-sm bg-[#3CA2FA] hover:bg-[#3CA2FA] hover:text-black border-0 text-white">Add to cart</button>
                 </div>
 
                 <img
