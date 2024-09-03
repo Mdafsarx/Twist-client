@@ -1,0 +1,25 @@
+/* Add this CSS to your stylesheet */
+.swal2-dark {
+    background-color: #2f2f2f !important;
+    color: #ffffff !important;
+  }
+  
+  .swal2-dark .swal2-title {
+    color: #ffffff !important;
+  }
+  
+  .swal2-dark .swal2-icon.swal2-warning {
+    border-color: #f39c12 !important;
+    color: #f39c12 !important;
+  }
+  
+  .swal2-dark .swal2-styled.swal2-confirm {
+    background-color: #80EEB4 !important;
+    border: none;
+  }
+  
+  .swal2-dark .swal2-styled.swal2-cancel {
+    background-color: #3CA2FA !important;
+    border: none;
+  }
+  
