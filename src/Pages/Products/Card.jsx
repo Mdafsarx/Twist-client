@@ -54,7 +54,7 @@ export default function Card({ product }) {
 
                 <div className="flex items-center justify-between px-4 py-2 bg-black">
                     <button className="text-[#80EEB4] hover:underline">Details</button>
-                    <button onClick={handleCart} className="btn btn-sm bg-[#3CA2FA] hover:bg-[#3CA2FA] hover:text-black border-0 text-white">Add to cart</button>
+                    <button onClick={handleCart} className="btn btn-sm border-0 text-black  bg-gradient-to-bl from-[#80EEB4] to-[#3CA2FA] hover:text-white">Add to cart</button>
                 </div>
 
                 <img

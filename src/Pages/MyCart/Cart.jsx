@@ -7,17 +7,24 @@ import { AuthContext } from "../../Auth/AuthProvider"
 import Row from "./row"
 import { ColorRing } from "react-loader-spinner"
 import { Link } from "react-router-dom"
+import Empty from "./Empty"
 
 export default function Cart() {
 
     const [data, setData] = useState([]);
     const [shipping, setShipping] = useState(5)
     const { User } = useContext(AuthContext);
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
         axios.get(`http://localhost:3000/Cart?email=${User?.email}`)
-            .then(data => setData(data.data))
+            .then(data => {
+                setData(data.data);
+                setLoading(false)
+            })
             .catch(error => console.log(error.message))
     }, []);
+
     let totalPrice = data.reduce((p, c) => c?.price + p, 0)
     totalPrice = parseInt(totalPrice)
     const handleShipping = (e) => { setShipping(e?.target?.value) }
@@ -48,10 +55,12 @@ export default function Cart() {
                             </thead>
                             <>
                                 {
-                                    data?.length === 0
-                                        ? <div className="flex flex-col items-center justify-center relative left-[320px]">
-                                            <ColorRing visible={true} ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
-                                        </div>
+                                    data?.length === 0 ?
+                                        loading === true
+                                            ? <div className="flex flex-col items-center justify-center relative left-[320px]">
+                                                <ColorRing visible={true} ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
+                                            </div>
+                                            : <Empty />
                                         : <tbody>
                                             {
                                                 data?.map((Data, i) => <Row key={i} addProduct={Data} />)
@@ -72,7 +81,7 @@ export default function Cart() {
                         <p>${totalPrice}</p>
                     </div>
                     {/* shipping */}
-                    <div className="border-b border-[#80EEB4] pb-6">
+                    <div className="border-b border-[#3CA2FA] pb-6">
                         <label>Shipping</label>
                         <select onChange={handleShipping} className="select select-accent bg-gray-900 border-[#80EEB4] mt-4 w-full max-w-xs">
                             <option value={5}>Dhaka - $5.00</option>
@@ -82,10 +91,10 @@ export default function Cart() {
                     {/* items and cost */}
                     <div className="uppercase flex text-sm items-center justify-between pt-2">
                         <p>Total cost</p>
-                        <p>${finalCost}</p>
+                        <p>${data.length === 0 ? 0 : finalCost}</p>
                     </div>
-                    <button className="btn btn-block border-0 text-white uppercase bg-gradient-to-tr from-[#80EEB4] to-[#3CA2FA] hover:text-black">gift</button>
-                    <Link to={"/Checkout"} state={{totalPrice,finalCost,shipping}} className="btn btn-block border-0 text-white uppercase bg-gradient-to-br from-[#3CA2FA] to-[#80EEB4] hover:text-black">Checkout</Link>
+                    <Link to={"/Checkout"} state={{ totalPrice, finalCost, shipping, Gift: true }} className="btn btn-block border-0 text-white uppercase bg-gradient-to-tr from-[#80EEB4] to-[#3CA2FA] hover:text-black">gift</Link>
+                    <Link to={"/Checkout"} state={{ totalPrice, finalCost, shipping , Gift: false }} className="btn btn-block border-0 text-white uppercase bg-gradient-to-br from-[#3CA2FA] to-[#80EEB4] hover:text-black">Checkout</Link>
 
                 </div>
 

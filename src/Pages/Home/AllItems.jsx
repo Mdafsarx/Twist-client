@@ -11,11 +11,11 @@ export default function AllItems() {
             <h1 className="text-3xl font-medium font-mono text-[#3CA2FA]"><span className="border-b-2 border-b-[#3CA2FA] pb-1">Popul</span>ar</h1>
 
             <div className="flex items-center pt-6">
-                <img src={img} className="w-[231px] h-52"  data-aos="zoom-in" data-aos-duration="1000"/>
-                <img src={img4} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200"/>
-                <img src={img5} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400"/>
-                <img src={img2} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600"/>
-                <img src={img3} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800"/>
+                <img src={img} className="w-[231px] h-52"  data-aos="zoom-in"/>
+                <img src={img4} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200"/>
+                <img src={img5} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300"/>
+                <img src={img2} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="400"/>
+                <img src={img3} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="500"/>
             </div>
 
         </section>

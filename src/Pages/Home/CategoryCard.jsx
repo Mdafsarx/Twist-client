@@ -33,7 +33,7 @@ export default function CategoryCard({ product }) {
     }
 
     return (
-        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+        <div data-aos="zoom-in" data-aos-duration="1000">
             <div className="w-full max-w-xs overflow-hidden border-2 rounded pb-2.5">
                 <img
                     className="object-cover w-full h-56"

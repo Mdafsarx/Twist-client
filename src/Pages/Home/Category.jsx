@@ -115,7 +115,7 @@ export default function Category() {
 
             {/* more button */}
             <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
-                <button onClick={()=>setMore(true)} className="btn btn-outline  hover:bg-gray-900 hover:border-[#3CA2FA] border-[#80EEB4] text-white">More</button>
+                <button onClick={()=>setMore(true)} className="btn btn-outline  border-0 text-white uppercase bg-gradient-to-bl from-[#80EEB4] to-[#3CA2FA] hover:text-black">More</button>
             </div>
 
         </section>
