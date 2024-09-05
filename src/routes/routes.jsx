@@ -8,12 +8,13 @@ import Register from "../Auth/Register";
 import Cart from "../Pages/MyCart/Cart";
 import Private from "../private/Private";
 import Checkout from "../Pages/MyCart/Checkout/Checkout";
+import Error from "../Pages/Error/Error";
 
 export const route = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
-        errorElement: <div>Error..........</div>,
+        errorElement: <Error/>,
         children: [
             {
                 index: true,

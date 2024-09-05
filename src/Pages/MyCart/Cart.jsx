@@ -13,17 +13,17 @@ export default function Cart() {
 
     const [data, setData] = useState([]);
     const [shipping, setShipping] = useState(5)
-    const { User } = useContext(AuthContext);
+    const { User , refresh } = useContext(AuthContext);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/Cart?email=${User?.email}`)
+        axios.get(`${import.meta.env.VITE_HTTP}/Cart?email=${User?.email}`)
             .then(data => {
                 setData(data.data);
                 setLoading(false)
             })
             .catch(error => console.log(error.message))
-    }, []);
+    }, [refresh]);
 
     let totalPrice = data.reduce((p, c) => c?.price + p, 0)
     totalPrice = parseInt(totalPrice)

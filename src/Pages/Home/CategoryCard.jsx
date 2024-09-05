@@ -15,7 +15,7 @@ export default function CategoryCard({ product }) {
                 color: '#fff',
             },
         })
-        axios.post(`http://localhost:3000/Cart`, newProduct)
+        axios.post(`${import.meta.env.VITE_HTTP}/Cart`, newProduct)
             .then(data => {if(data.data.insertedId)toast.success("Added successful", {
                 style: {
                     borderRadius: '10px',
@@ -34,7 +34,7 @@ export default function CategoryCard({ product }) {
 
     return (
         <div data-aos="zoom-in" data-aos-duration="1000">
-            <div className="w-full max-w-xs overflow-hidden border-2 rounded pb-2.5">
+            <div className="w-full max-w-xs overflow-hidden border-2 rounded-md pb-2.5">
                 <img
                     className="object-cover w-full h-56"
                     src={image}

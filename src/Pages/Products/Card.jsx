@@ -16,7 +16,7 @@ export default function Card({ product }) {
                 color: '#fff',
             },
         })
-        axios.post(`http://localhost:3000/Cart`, newProduct)
+        axios.post(`${import.meta.env.VITE_HTTP}/Cart`, newProduct)
             .then(data => {
                 if (data.data.insertedId) toast.success("Added successful", {
                     style: {

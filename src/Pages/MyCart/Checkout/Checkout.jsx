@@ -11,7 +11,7 @@ export default function Checkout() {
   const location = useLocation();
   const gift= location?.state?.Gift ? 2 : 0
   const navLink = useNavigate()
-  const { User } = useContext(AuthContext);
+  const { User  } = useContext(AuthContext);
 
   const handleConfirm = () => {
 
@@ -30,7 +30,7 @@ export default function Checkout() {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/Cart?email=${User?.email}`)
+        axios.delete(`${import.meta.env.VITE_HTTP}/Cart?email=${User?.email}`)
           .then(data => {
             if (data.data.deletedCount) {
               Swal.fire({
