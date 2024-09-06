@@ -13,11 +13,11 @@ import { Link } from "react-router-dom"
 
 const TopItems = () => {
     return (
-        <section className="my-16">
+        <section className="my-16 px-8 md:px-0">
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-                <div className="bg-[#F9D9DA] md:col-span-2 h-80 relative pl-10 pr-16 pt-8 md:pt-0" data-aos="zoom-in" data-aos-duration="700">
+                <div className="bg-[#F9D9DA] md:col-span-2 h-80 relative pl-10 pr-16 pt-8 md:pt-0  rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700">
                     <figure className="flex justify-center md:justify-start">
                         <img src={img9} className="size-56 md:size-72 absolute bottom-0 -mb-[20px] md:-mb-[25.2px]" />
                     </figure>
@@ -31,7 +31,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#DAF3ED] h-80 relative pt-8" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                <div className="bg-[#DAF3ED] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
 
                     <figure className="flex justify-center">
                         <img src={img12} className="size-52 absolute bottom-0 -mb-6" />
@@ -47,13 +47,13 @@ const TopItems = () => {
 
                 </div>
 
-                <div className="bg-[#FFEDCD] md:row-span-2 relative" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
-                    <figure>
-                        <img src={img2} className="size-80 absolute bottom-0" />
+                <div className="bg-[#FFEDCD] md:row-span-2 relative pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
+                    <figure className="flex justify-center md:justify-start">
+                        <img src={img2} className="size-48 md:size-80 absolute bottom-0" />
                     </figure>
 
-                    <div className="flex items-center justify-center  h-80">
-                        <div className="space-y-1 ">
+                    <div className="flex justify-center  md:items-center h-80">
+                        <div className="space-y-1 text-center md:text-start">
                             <h1 className="uppercase text-orange-400  font-semibold">#Trading now</h1>
                             <p className="text-2xl font-black">Gaming Chair</p>
                             <Link to={'/Products'} className="uppercase font-normal pt-0.5 border-b-2 border-black hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
@@ -61,7 +61,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#89f0d2F2] h-80 relative pt-8" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                <div className="bg-[#89f0d2F2] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
 
                     <figure className="flex justify-center">
                         <img src={img7} className="size-44 absolute bottom-0 " />
@@ -76,13 +76,13 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#D8DBEC] md:col-span-2 h-80 relative pl-10 pr-20" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
-                    <figure>
-                        <img src={img} className="size-72 absolute bottom-0 -mb-[37px]" />
+                <div className="bg-[#D8DBEC] md:col-span-2 h-80 relative pl-10 pr-20 pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
+                    <figure className="flex justify-center md:justify-start">
+                        <img src={img} className= "size-56 md:size-72 absolute bottom-0 -mb-[28px] md:-mb-[37px]" />
                     </figure>
 
-                    <div className="flex justify-end items-center h-80">
-                        <div className="space-y-1">
+                    <div className="flex justify-center md:justify-end  md:items-center h-80">
+                        <div className="space-y-1 text-center md:text-start">
                             <h1 className="uppercase text-purple-600 font-semibold">#hot collection</h1>
                             <p className="text-2xl font-black">Android Tv</p>
                             <Link to={'/Products'} className="uppercase font-normal pt-0.5 border-b-2 border-black hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>

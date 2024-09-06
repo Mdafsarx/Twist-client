@@ -27,19 +27,19 @@ export default function Category() {
 
 
     return (
-        <section className="text-white pb-10 pt-6 max-w-6xl mx-auto">
+        <section className="text-white pb-10 pt-6 max-w-6xl mx-auto px-7 md:px-0">
 
             {/* computers */}
-            <div className="flex gap-5 pb-10 border-b border-[#80EEB4]">
+            <div className="flex flex-col md:flex-row gap-5 pb-10 border-b border-[#80EEB4]">
 
                 {/* category name and title */}
-                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Computers</h1>
-                    <p>All the power I need in one sleek device.</p>
-                    <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
+                    <p className='pb-2'>All the power I need in one sleek device.</p>
+                    <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2  border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
                 </div>
                 {/* products */}
-                <div className='w-[75%]'>
+                <div className='md:w-[75%]'>
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={30}
@@ -54,7 +54,7 @@ export default function Category() {
                                 <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
                             </div>
                             :
-                            computers?.map((data, i) => <SwiperSlide key={i}><CategoryCard product={data} /></SwiperSlide>)
+                            computers?.map((data, i) => <SwiperSlide  key={i}><CategoryCard product={data} /></SwiperSlide>)
                         }
 
                     </Swiper>
@@ -63,16 +63,16 @@ export default function Category() {
             </div>
 
             {/* televisions */}
-            <div className={`flex gap-5 py-10 ${more ? 'border-b' : ''}  border-[#80EEB4]`}>
+            <div className={`flex flex-col md:flex-row gap-5 py-10 ${more ? 'border-b' : ''}  border-[#80EEB4]`}>
 
                 {/* category name and title */}
-                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Televisions</h1>
-                    <p>Watching TV Becomes a Fully Immersive Experience.</p>
+                    <p className='pb-2'>Watching TV Becomes a Fully Immersive Experience.</p>
                     <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
                 </div>
                 {/* products */}
-                <div className='w-[75%]'>
+                <div className='md:w-[75%]'>
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={30}
@@ -97,16 +97,16 @@ export default function Category() {
             </div>
 
             {/* accessories */}
-            <div className={`${more ? "flex" : "hidden"} gap-5 py-10`}>
+            <div className={`${more ? "flex" : "hidden"} flex-col md:flex-row gap-5 py-10`}>
 
                 {/* category name and title */}
-                <div className='w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>accessories</h1>
-                    <p>Accessories are the exclamation point of any outfit.</p>
+                    <p className='pb-2'>Accessories are the exclamation point of any outfit.</p>
                     <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
                 </div>
                 {/* products */}
-                <div className='w-[75%]'>
+                <div className='md:w-[75%]'>
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={30}
