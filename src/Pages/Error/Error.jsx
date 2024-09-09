@@ -4,8 +4,7 @@ import img from "../../assets/giphy.gif"
 
 export default function Error() {
   
-   const navigate=useNavigate()
-
+   const navigate=useNavigate();
 
     return (
         <div>
