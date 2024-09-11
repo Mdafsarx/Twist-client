@@ -54,7 +54,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
+                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-down" data-aos-duration="800" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
 
                 </div>
 
@@ -70,12 +70,12 @@ const Navbar = () => {
 
                     {
                         loading
-                            ? <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" />
+                            ? <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" />
                             : <>
                                 {
                                     User
                                         ?
-                                        <div className="flex items-center gap-2.5" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+                                        <div className="flex items-center gap-2.5" data-aos="fade-down" data-aos-duration="800" data-aos-delay="300">
 
                                             <button title="Logout" onClick={handleLogout} className="font-bold hover:text-[#3CA2FA] hover:underline">Logout</button>
                                             <div className="avatar placeholder" title={User?.displayName}>
@@ -86,7 +86,7 @@ const Navbar = () => {
 
                                         </div>
                                         :
-                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#3CA2FA] border-2' : 'hover:text-[#3CA2FA] hover:underline'} data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">Login</NavLink>
+                                        <NavLink title="Login" to={'/Login'} className={({ isActive }) => isActive ? 'btn btn-sm btn-outline text-[#ffffff] border-[#3CA2FA] border-2' : 'hover:text-[#3CA2FA] hover:underline font-bold'} data-aos="fade-down" data-aos-duration="800" data-aos-delay="300">Login</NavLink>
                                 }
                             </>
                     }

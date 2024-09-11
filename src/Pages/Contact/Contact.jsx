@@ -4,6 +4,7 @@ import { FaTwitter } from "react-icons/fa6";
 import { LuInstagram } from "react-icons/lu";
 import { TiSocialFacebook } from "react-icons/ti";
 import { FaYoutube } from "react-icons/fa6";
+import "../MyCart/Checkout/css.css"
 
 
 
@@ -13,7 +14,7 @@ export default function Contact() {
     <div className='flex justify-center items-center text-4xl md:text-6xl  text-white pt-14 md:pt-0'>
       <section className="min-h-screen lg:flex ">
 
-        <div className="flex flex-col justify-center w-full p-8 lg:px-12 xl:px-32 lg:w-1/2" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+        <div className="flex flex-col justify-center w-full p-8 lg:px-12 xl:px-32 lg:w-1/2" data-aos="fade-right" data-aos-duration="500" >
           <h1 className="text-2xl font-light capitalize  lg:text-4xl">hire us.</h1>
           <p className="mt-4 font-bold">
             Ask us everything and we would love to hear from you
@@ -33,7 +34,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center w-full h-64 lg:w-1/2 lg:h-auto mt-16 md:mt-0 mb-28 md:mb-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+        <div className="flex justify-center items-center w-full h-64 lg:w-1/2 lg:h-auto mt-16 md:mt-0 mb-28 md:mb-0" data-aos="fade-left" data-aos-duration="500">
           <form onSubmit={(e) => {
             e.preventDefault()
             Swal.fire({
@@ -41,7 +42,10 @@ export default function Contact() {
               icon: "success",
               title: "Thank you for getting in touch!",
               showConfirmButton: false,
-              timer: 1500
+              timer: 1500,
+              customClass: {
+                popup: 'swal2-dark',
+              },
             });
           }} className="text-sm">
             <div className="-mx-2 md:items-center md:flex">

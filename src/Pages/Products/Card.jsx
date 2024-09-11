@@ -36,7 +36,7 @@ export default function Card({ product }) {
     }
     return (
         <>
-            <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto" data-aos="fade-up" data-aos-duration="1000" >
+            <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto" data-aos="fade-up" data-aos-duration="500" >
 
                 <div className="px-4 py-2">
                     <h1 className="md:text-lg font-black text-[#3CA2FA] uppercase">{productName}</h1>

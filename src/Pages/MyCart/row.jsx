@@ -9,13 +9,13 @@ export default function Row({ addProduct }) {
     const { productName, description, price, category, image, brand , _id} = addProduct || {};
     const { setRefresh , refresh } = useContext(AuthContext)
     return (
-        <tr>
+        <tr data-aos="zoom-in" data-aos-duration="500">
             <th className="flex items-center gap-3">
                 <img src={image} className="size-20 rounded-md" />
                 <div className="space-y-2">
-                    <p>{productName}</p>
-                    <p>{category}</p>
-                    <button onClick={() => {
+                    <p className="text-xs md:text-base">{productName}</p>
+                    <p className="text-xs md:text-base">{category}</p>
+                    <button  onClick={() => {
 
                         Swal.fire({
                             title: "Are you sure?",
@@ -48,12 +48,12 @@ export default function Row({ addProduct }) {
                             }
                         });
 
-                    }} className="hover:underline">Remove</button>
+                    }} className="hover:underline text-xs md:text-base">Remove</button>
                 </div>
             </th>
-            <td title={description}>{description.slice(0, 20)}...</td>
-            <td>{brand}</td>
-            <td>{price}</td>
+            <td className="hidden md:table-cell" title={description}>{description.slice(0, 20)}...</td>
+            <td className="text-xs md:text-base">{brand}</td>
+            <td className="text-xs md:text-base">{price}</td>
         </tr>
     )
 }

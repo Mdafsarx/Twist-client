@@ -17,7 +17,7 @@ const TopItems = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-                <div className="bg-[#F9D9DA] md:col-span-2 h-80 relative pl-10 pr-16 pt-8 md:pt-0  rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700">
+                <div className="bg-[#F9D9DA] md:col-span-2 h-80 relative pl-10 pr-16 pt-8 md:pt-0  rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="300">
                     <figure className="flex justify-center md:justify-start">
                         <img src={img9} className="size-56 md:size-72 absolute bottom-0 -mb-[20px] md:-mb-[25.2px]" />
                     </figure>
@@ -31,7 +31,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#DAF3ED] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                <div className="bg-[#DAF3ED] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="200">
 
                     <figure className="flex justify-center">
                         <img src={img12} className="size-52 absolute bottom-0 -mb-6" />
@@ -47,7 +47,7 @@ const TopItems = () => {
 
                 </div>
 
-                <div className="bg-[#FFEDCD] md:row-span-2 relative pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
+                <div className="bg-[#FFEDCD] md:row-span-2 relative pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="400">
                     <figure className="flex justify-center md:justify-start">
                         <img src={img2} className="size-48 md:size-80 absolute bottom-0" />
                     </figure>
@@ -61,7 +61,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#89f0d2F2] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                <div className="bg-[#89f0d2F2] h-80 relative pt-8 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="300">
 
                     <figure className="flex justify-center">
                         <img src={img7} className="size-44 absolute bottom-0 " />
@@ -76,7 +76,7 @@ const TopItems = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#D8DBEC] md:col-span-2 h-80 relative pl-10 pr-20 pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="600">
+                <div className="bg-[#D8DBEC] md:col-span-2 h-80 relative pl-10 pr-20 pt-8 md:pt-0 rounded-xl md:rounded-non" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="600">
                     <figure className="flex justify-center md:justify-start">
                         <img src={img} className= "size-56 md:size-72 absolute bottom-0 -mb-[28px] md:-mb-[37px]" />
                     </figure>

@@ -49,7 +49,7 @@ const Products = () => {
                 {/* filter , search*/}
                 <div className="flex flex-col md:flex-row items-center gap-5" >
                     {/* search... */}
-                    <fieldset data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                    <fieldset data-aos="zoom-in" data-aos-duration="500">
                         <div className="relative">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <button
@@ -90,7 +90,7 @@ const Products = () => {
                                 // setBrand('');
                                 // setPrice(0)
                             }
-                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600"
+                        }} data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200"
                     >
                         <option value={"All categories"}>All categories</option>
                         <option value={"Televisions"}>Televisions</option>
@@ -112,7 +112,7 @@ const Products = () => {
                                 // setCategory('')
                                 // setPrice(0)
                             }
-                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900"
+                        }} data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400"
                     >
                         <option>All brands</option>
                         <option value={"SoundWave"}>Sound wave</option>
@@ -134,7 +134,7 @@ const Products = () => {
                                 // setBrand('')
                                 // setCategory('')
                             }
-                        }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1200"
+                        }} data-aos="zoom-in" data-aos-duration="500" data-aos-delay="600"
                     >
                         <option>All price</option>
                         <option value={"1-1000"}>
@@ -152,7 +152,7 @@ const Products = () => {
                 {/* sort */}
                 <select className="select select-bordered w-full max-w-24 mt-4 md:mt-0" onClick={(e) => {
                     setSort(e.target.value)
-                }} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1500">
+                }} data-aos="zoom-in" data-aos-duration="500" data-aos-delay="800">
                     <option value={""} disabled selected>Sort</option>
                     <option value={"low to high"}>Price: low to high</option>
                     <option value={"high to low"}>Price: high to low</option>

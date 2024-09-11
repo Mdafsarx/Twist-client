@@ -33,7 +33,7 @@ export default function Category() {
             <div className="flex flex-col md:flex-row gap-5 pb-10 border-b border-[#80EEB4]">
 
                 {/* category name and title */}
-                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Computers</h1>
                     <p className='pb-2'>All the power I need in one sleek device.</p>
                     <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2  border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
@@ -66,7 +66,7 @@ export default function Category() {
             <div className={`flex flex-col md:flex-row gap-5 py-10 ${more ? 'border-b' : ''}  border-[#80EEB4]`}>
 
                 {/* category name and title */}
-                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>Televisions</h1>
                     <p className='pb-2'>Watching TV Becomes a Fully Immersive Experience.</p>
                     <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
@@ -100,7 +100,7 @@ export default function Category() {
             <div className={`${more ? "flex" : "hidden"} flex-col md:flex-row gap-5 py-10`}>
 
                 {/* category name and title */}
-                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <div className='md:w-[25%]' data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
                     <h1 className='font-black font-mono text-3xl uppercase text-[#80EEB4] pb-1'>accessories</h1>
                     <p className='pb-2'>Accessories are the exclamation point of any outfit.</p>
                     <Link to={'/Products'} className="uppercase font-normal pt-3 border-b-2 border-white hover:text-[#3CA2FA] hover:border-[#3CA2FA]">Shop Now</Link>
@@ -131,7 +131,7 @@ export default function Category() {
             </div>
 
             {/* more button */}
-            <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+            <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="500">
                 <button onClick={() => setMore(true)} className="btn btn-outline  border-0 text-white uppercase bg-gradient-to-bl from-[#80EEB4] to-[#3CA2FA] hover:text-black">More</button>
             </div>
 

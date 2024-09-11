@@ -6,9 +6,9 @@ export default function Empty() {
     return (
         <div>
             <div>
-                <div className="flex items-center justify-center relative left-[200px] pt-4">
+                <div className="flex items-center justify-center relative left-[80px] md:left-[200px] pt-4">
                     <div className='flex flex-col items-center'>
-                        <img src={img} alt="empty" className='w-40'/>
+                        <img src={img} alt="empty" className='w-28 md:w-40'/>
 
                         <p className="mt-4 text-lg font-bold">You have not added anything </p>
 

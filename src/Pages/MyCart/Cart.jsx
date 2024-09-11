@@ -31,12 +31,12 @@ export default function Cart() {
     const finalCost = totalPrice - shipping;
 
     return (
-        <section className="max-w-7xl mx-auto text-white mt-24 mb-11">
+        <section className="max-w-7xl mx-auto text-white mt-24 mb-11 ">
 
-            <div className="flex items-start gap-24">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-16 md:gap-24">
 
                 {/* shopping cart */}
-                <div className="w-[70%] overflow-y-auto max-h-[68vh">
+                <div className="md:w-[70%] overflow-y-auto " data-aos="fade-right" data-aos-duration="500" >
                     {/* text */}
                     <div className="flex items-center justify-between border-b border-[#3CA2FA] pb-3 text-xl font-bold text-[#80EEB4]">
                         <h1>Shopping Cart</h1>
@@ -48,7 +48,7 @@ export default function Cart() {
                             <thead>
                                 <tr className="text-white font-bold uppercase">
                                     <th>Product details</th>
-                                    <th>Description</th>
+                                    <th className="hidden md:table-cell">Description</th>
                                     <th>quantity</th>
                                     <th>Price</th>
                                 </tr>
@@ -73,7 +73,7 @@ export default function Cart() {
                 </div>
 
                 {/* order summary */}
-                <div className="w-[25%] font-bold space-y-4">
+                <div className="md:w-[25%] font-bold space-y-4" data-aos="fade-left" data-aos-duration="500">
                     <h1 className="text-xl text-[#80EEB4] border-b border-[#3CA2FA] pb-3">Order Summary</h1>
                     {/* items and cost */}
                     <div className="uppercase flex text-sm items-center justify-between">

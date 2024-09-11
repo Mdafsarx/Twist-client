@@ -51,16 +51,16 @@ export default function Checkout() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto text-white mt-24 flex gap-20 ">
+    <div className="max-w-6xl mx-auto text-white mt-24 mb-8 md:mb-0 flex flex-col md:flex-row gap-8 md:gap-20 px-7 md:px-0" >
 
       {/* cash */}
-      <div className="w-[75%] space-y-4">
+      <div className="md:w-[75%] space-y-4" data-aos="fade-right" data-aos-duration="500">
         {/* return */}
-        <h1 className="flex items-center justify-center font-bold text-lg gap-1 border-2 border-[#80EEB4] p-1.5 rounded-md text-[#3CA2FA]"><TbTruckReturn className="text-3xl" />7 Days Happy Return</h1>
+        <h1 className="flex items-center justify-center font-bold md:text-lg gap-1 border-2 border-[#80EEB4] p-1.5 rounded-md text-[#3CA2FA]"><TbTruckReturn className="text-3xl" />7 Days Happy Return</h1>
 
         {/* method */}
         <div className="border-2 border-[#80EEB4] rounded-md">
-          <h1 className="text-lg p-3 text-[#3CA2FA] border-b-2 border-[#80EEB4] ">Payment Method(Please select a payment method)</h1>
+          <h1 className= "text-base md:text-lg p-3 text-[#3CA2FA] border-b-2 border-[#80EEB4] ">Payment Method(Please select a payment method)</h1>
 
           <div className="py-5 px-4 border-b-2 border-[#80EEB4]">
             <label className="block font-bold">Shipping</label>
@@ -78,8 +78,8 @@ export default function Checkout() {
       </div>
 
       {/* details */}
-      <div className="w-[25%] border-2 border-[#80EEB4] rounded-md p-4">
-        <h1 className="text-lg font-bold border-b-2 border-dashed border-[#80EEB4] pb-3 text-[#3CA2FA]">Checkout Summary</h1>
+      <div className="md:w-[25%] border-2 border-[#80EEB4] rounded-md p-4" data-aos="fade-left" data-aos-duration="500">
+        <h1 className="md:text-lg font-bold border-b-2 border-dashed border-[#80EEB4] pb-3 text-[#3CA2FA]">Checkout Summary</h1>
         <div className="flex items-center justify-between py-3 border-b-2 border-dashed border-[#80EEB4]">
           <p>Subtotal</p>
           <p>{location?.state?.totalPrice}$</p>

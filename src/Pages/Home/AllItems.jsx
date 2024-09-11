@@ -13,10 +13,10 @@ export default function AllItems() {
     
             <div className="flex flex-col md:flex-row items-center pt-6">
                 <img src={img} className="w-[231px] rounded-t-2xl md:rounded-l-xl h-52"  data-aos="zoom-in"/>
-                <img src={img4} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200"/>
-                <img src={img5} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="300"/>
-                <img src={img2} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400"/>
-                <img src={img3} className="w-[231px] rounded-b-2xl md:rounded-r-xl h-52" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="500"/>
+                <img src={img4} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100"/>
+                <img src={img5} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="200"/>
+                <img src={img2} className="w-[231px] h-52" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300"/>
+                <img src={img3} className="w-[231px] rounded-b-2xl md:rounded-r-xl h-52" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="400"/>
             </div>
 
         </section>
