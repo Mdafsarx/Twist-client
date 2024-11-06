@@ -1,0 +1,33 @@
+
+.box {
+    color: #ffffff;
+    --main-bg: linear-gradient(to left,#3CA2FA , #80EEB4);
+    border: solid 2.5px transparent;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 30%, #ffffff33, #ffffff 100%, transparent);
+    background: 
+        /* padding-box clip this background in to the overall element except the border */
+        var(--main-bg) padding-box,
+        /* border-box extends this background to the border space */
+        var(--gradient-border) border-box, 
+        /* Duplicate main background to fill in behind the gradient border */
+        var(--main-bg) border-box;
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+.box:hover {
+    animation-play-state: paused;
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+

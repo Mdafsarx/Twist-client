@@ -4,6 +4,7 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { Grid } from 'react-loader-spinner';
 import { SiTemporal } from 'react-icons/si';
+import Navbar2 from '../Components/Navbar2';
 
 const MainLayout = () => {
     const [spinner, setSpinner] = useState(true)
@@ -24,6 +25,7 @@ const MainLayout = () => {
                     :
                     <div>
                         <Navbar />
+                        <Navbar2/>
                         <div className='min-h-[61.5vh]'>
                             <Outlet />
                         </div>

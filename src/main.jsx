@@ -7,6 +7,7 @@ import AuthProvider from './Auth/AuthProvider'
 import { Toaster } from 'react-hot-toast';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+// import 'magic-ui/dist/magic-ui.css';
 AOS.init(); 
 
 

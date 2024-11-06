@@ -6,7 +6,6 @@ const Footer = () => {
     return (
         <footer className="bg-[#3CA2FA] text-white">
             <div className="container px-6 py-[23.7px] mx-auto">
-
                 <div className="flex flex-col items-center text-center">
 
                     <p className='text-2xl font-black font-serif text-[#80EEB4] flex items-center gap-1' data-aos="zoom-in" data-aos-duration="500" data-aos-delay="100">Twist<SiTemporal className='animate-spin' /></p>

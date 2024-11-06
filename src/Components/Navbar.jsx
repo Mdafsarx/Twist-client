@@ -27,7 +27,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar bg-[#3CA2FAF2] md:px-7 font-serif text-white fixed top-0 w-full z-50">
+            <div className="navbar md:hidden  md:px-7 font-serif text-white fixed top-0 w-full z-50">
 
                 <div className="navbar-start md:pl-8">
 
@@ -54,7 +54,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-down" data-aos-duration="800" data-aos-delay="300">Twist<SiTemporal className='animate-spin' /></p>
+                    <p className='text-xl md:text-2xl font-black text-[#80EEB4] flex items-center gap-1' data-aos="fade-down" data-aos-duration="800" data-aos-delay="300">Twist<SiTemporal className='animate-spin [animation-duration:1.5s]' /></p>
 
                 </div>
 
@@ -66,7 +66,7 @@ const Navbar = () => {
                 </div>
 
                 {/* nav-end */}
-                <div className="navbar-end bg-[#80EEB4] p-2 h-[60px] pr-4 md:pr-8" >
+                <div className="navbar-end p-2 h-[60px] pr-4 md:pr-8" >
 
                     {
                         loading
