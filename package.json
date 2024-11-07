@@ -29,6 +29,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.26.0",
+    "react-speech-recognition": "^3.10.0",
     "sweetalert2": "^11.6.13",
     "swiper": "^11.1.11",
     "tailwind-merge": "^2.5.4",

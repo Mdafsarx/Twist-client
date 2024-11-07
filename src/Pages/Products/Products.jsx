@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import { useState } from "react";
 import Card from "./Card";
 import { useEffect } from "react";
@@ -7,6 +8,12 @@ import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 import "./button.css";
 import toast from "react-hot-toast";
 import { ColorRing, Grid } from "react-loader-spinner";
+import { IoSearchSharp } from "react-icons/io5";
+import { MdOutlineKeyboardVoice } from "react-icons/md";
+import { TbCameraSearch } from "react-icons/tb";
+import { AuthContext } from '../../Auth/AuthProvider';
+
+
 
 const Products = () => {
     // paginate
@@ -20,6 +27,8 @@ const Products = () => {
     const [brand, setBrand] = useState("");
     const [price, setPrice] = useState(0);
     const [sort, setSort] = useState('');
+    const { startListening } = useContext(AuthContext);
+    const [searchModal, setSearchModal] = useState(false)
 
 
     useEffect(() => {
@@ -42,8 +51,10 @@ const Products = () => {
         setFinalSearch(search);
     };
 
+
     return (
         <div className="max-w-7xl mx-auto space-y-7 md:space-y-16 my-12 pt-10  md:pb-4 md:pt-20">
+
             {/* filter and sort */}
             <div className="flex flex-col md:flex-row items-center justify-between ">
                 {/* filter , search*/}
@@ -51,31 +62,38 @@ const Products = () => {
                     {/* search... */}
                     <fieldset data-aos="zoom-in" data-aos-duration="500">
                         <div className="relative">
-                            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <span className="absolute inset-y-0 left-0 px-1 flex items-center rounded-l-md bg-[#3CA2FA]">
                                 <button
                                     onClick={handleSearch}
                                     type="button"
                                     title="search"
-                                    className="p-1 focus:outline-none focus:ring"
-                                >
-                                    <svg
-                                        fill="#80EEB4"
-                                        viewBox="0 0 512 512"
-                                        className="w-4 h-4 "
-                                    >
-                                        <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
-                                    </svg>
+                                    className="p-1 focus:outline-none focus:ring">
+                                    <IoSearchSharp className="text-xl" />
                                 </button>
                             </span>
                             <input
                                 onChange={(e) => setSearch(e.target.value)}
-                                type="search"
+                                type="text"
                                 name="Search"
-                                placeholder="Search..."
-                                className="w-auto md:w-96 py-3.5 pl-10 pr-2 text-sm rounded-md focus:outline-none "
-                            />
+                                placeholder="S E A R C H...."
+                                className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none " />
+                            <span className="absolute inset-y-0 right-0 px-1.5 flex items-center">
+                                <div
+                                    type="button"
+                                    className="focus:outline-none focus:ring">
+                                    <div className="flex items-center">
+                                        <TbCameraSearch className="text-2xl" />
+                                        <div className="h-6 border-l-2 border-gray-300 ml-2 mr-1 "></div>
+                                        <MdOutlineKeyboardVoice className="text-2xl" onClick={() => {
+                                            // startListening()
+                                            setSearchModal(true)
+                                        }} />
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </fieldset>
+
 
                     {/* filter */}
                     <select
@@ -162,12 +180,38 @@ const Products = () => {
 
             </div>
 
+            {
+                searchModal && <div className="absolute top-0 left-[38%] z-50">
+                    <div className='-mt-14'>
+                        <div className="bg-gray-900 border-4 border-white text-white p-5 h-72 w-[420px]">
+                            <div className='flex justify-end'>
+                                <button onClick={() => setSearchModal(false)} className="btn btn-sm btn-circle btn-ghost">✕</button>
+                            </div>
+                            <h3 className="font-bold text-lg">Hello!</h3>
+                            <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <dialog id="modal" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                </div>
+            </dialog>
+
             {/* product's card */}
             <>
                 {
                     data?.length === 0
                         ? <div className="flex flex-col items-center justify-center min-h-[25vh]">
-                            <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading"  wrapperClass="color-ring-wrapper"  colors={['#3CA2FA','#80EEB4','#3CA2FA','#80EEB4','#3CA2FA']}/>
+                            <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
                         </div>
                         : <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
                             {data?.map((Data, i) => (
