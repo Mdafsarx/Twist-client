@@ -16,10 +16,10 @@ const Home = () => {
             <div className='max-w-7xl mx-auto'>
                 <TopItems />
                 <Category />
+                <AllItems />
             </div>
                 <Testimonial />
                 <Faq />
-                <AllItems />
         </div>
     );
 };
