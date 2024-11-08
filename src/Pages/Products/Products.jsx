@@ -13,6 +13,7 @@ import { TbCameraSearch } from "react-icons/tb";
 import { AuthContext } from '../../Auth/AuthProvider';
 import Lottie from 'lottie-react';
 import lottieImage from '../../../public/Animation - 1731025901682.json'
+import lottieImage2 from '../../../public/Animation empty - 1731041962497.json'
 import "./button.css";
 
 
@@ -30,8 +31,8 @@ const Products = () => {
     const [price, setPrice] = useState(0);
     const [sort, setSort] = useState('');
     const { startListening, stopListening, listening, transcript } = useContext(AuthContext);
-    const [lastTranscript, setLastTranscript] = useState('')
-    const [searchModal, setSearchModal] = useState(false);
+    const [lastTranscript, setLastTranscript] = useState('');
+    const [dataLoading, setDataLoading] = useState(false);
 
     useEffect(() => {
         if (transcript.trim()) {
@@ -41,13 +42,16 @@ const Products = () => {
 
 
     useEffect(() => {
+        setDataLoading(true)
         axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch || lastTranscript}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
             .then((data) => {
                 setData(data.data.result);
                 setTotalPages(data.data.totalPages);
+                setDataLoading(false)
             })
             .catch((error) => {
                 toast.error(error);
+                setDataLoading(false)
             });
     }, [currentPage, finalSearch, lastTranscript, category, brand, price, sort]);
 
@@ -72,7 +76,7 @@ const Products = () => {
                     {/* search... */}
                     <fieldset data-aos="zoom-in" data-aos-duration="500">
                         <div className="relative">
-                            <span className="absolute inset-y-0 left-0 px-1 flex items-center rounded-l-md bg-[#3CA2FA]">
+                            <span className="absolute inset-y-0 left-0 px-1 text-white flex items-center rounded-l-md bg-[#3CA2FA]">
                                 <button
                                     onClick={handleSearch}
                                     type="button"
@@ -82,11 +86,14 @@ const Products = () => {
                                 </button>
                             </span>
                             <input
-                                onChange={(e) => setSearch(e.target.value)}
+                                onChange={(e) => {
+                                    setSearch(e.target.value)
+                                    setLastTranscript('')
+                                }}
                                 type="text"
                                 name="Search"
                                 placeholder="S E A R C H...."
-                                defaultValue={transcript || lastTranscript}
+                                value={search ||  transcript || lastTranscript}
                                 className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none " />
                             <span className="absolute inset-y-0 right-0 px-1.5 flex items-center">
                                 <div
@@ -95,7 +102,7 @@ const Products = () => {
                                     <div className="flex items-center">
                                         <TbCameraSearch className="text-2xl" />
                                         <div className="h-6 border-l-2 border-gray-300 ml-2 mr-1 "></div>
-                                        <MdOutlineKeyboardVoice className="text-2xl" onClick={() => {
+                                        <MdOutlineKeyboardVoice className={`text-2xl hover:text-[#80EEB4] ${listening ? 'text-[#80EEB4]': 'text-black'}`} onClick={() => {
                                             setSearch('')
                                             setFinalSearch('')
                                             setLastTranscript('')
@@ -213,15 +220,25 @@ const Products = () => {
             {/* product's card */}
             <>
                 {
-                    data?.length === 0
+                    dataLoading
                         ? <div className="flex flex-col items-center justify-center min-h-[25vh]">
                             <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
                         </div>
-                        : <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
-                            {data?.map((Data, i) => (
-                                <Card key={i} product={Data} />
-                            ))}
-                        </div>
+                        :
+                        data?.length === 0
+                            ? <div className='text-white flex flex-col items-center'>
+                                <Lottie animationData={lottieImage2} loop className="w-full h-72" autoplay />
+                                <div className='text-center -mt-5'>
+                                    <h2 className='text-xl font-bold pb-1'>No results found</h2>
+                                    <p>Your search "{finalSearch || lastTranscript}" did not  <br /> match any products
+                                        Please try again.</p>
+                                </div>
+                            </div>
+                            : <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-8 md:gap-10 md:ml-1 px-4 md:px-0">
+                                {data?.map((Data, i) => (
+                                    <Card key={i} product={Data} />
+                                ))}
+                            </div>
                 }
             </>
 

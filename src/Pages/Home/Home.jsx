@@ -5,19 +5,21 @@ import TopItems from './TopItems';
 import Category from './Category';
 import AllItems from './AllItems';
 import Faq from './Faq';
+import Testimonial from './Testimonial';
 
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Marque/>
+            <Marque />
             <div className='max-w-7xl mx-auto'>
-                <TopItems/>
-                <Category/>
-                <Faq/>
-                <AllItems/>
+                <TopItems />
+                <Category />
             </div>
+                <Testimonial />
+                <Faq />
+                <AllItems />
         </div>
     );
 };
