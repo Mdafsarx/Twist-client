@@ -5,13 +5,15 @@ import { useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
-import "./button.css";
 import toast from "react-hot-toast";
-import { ColorRing, Grid } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 import { IoSearchSharp } from "react-icons/io5";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
 import { TbCameraSearch } from "react-icons/tb";
 import { AuthContext } from '../../Auth/AuthProvider';
+import Lottie from 'lottie-react';
+import lottieImage from '../../../public/Animation - 1731025901682.json'
+import "./button.css";
 
 
 
@@ -27,12 +29,19 @@ const Products = () => {
     const [brand, setBrand] = useState("");
     const [price, setPrice] = useState(0);
     const [sort, setSort] = useState('');
-    const { startListening } = useContext(AuthContext);
-    const [searchModal, setSearchModal] = useState(false)
+    const { startListening, stopListening, listening, transcript } = useContext(AuthContext);
+    const [lastTranscript, setLastTranscript] = useState('')
+    const [searchModal, setSearchModal] = useState(false);
+
+    useEffect(() => {
+        if (transcript.trim()) {
+            setLastTranscript(transcript);
+        }
+    }, [transcript]);
 
 
     useEffect(() => {
-        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
+        axios(`${import.meta.env.VITE_HTTP}/Products?page=${currentPage + 1}&limit=${12}&search=${finalSearch || lastTranscript}&category=${category}&brand=${brand}&price=${price}&sort=${sort}`)
             .then((data) => {
                 setData(data.data.result);
                 setTotalPages(data.data.totalPages);
@@ -40,7 +49,7 @@ const Products = () => {
             .catch((error) => {
                 toast.error(error);
             });
-    }, [currentPage, finalSearch, category, brand, price, sort]);
+    }, [currentPage, finalSearch, lastTranscript, category, brand, price, sort]);
 
 
     const handlePageChange = (e) => {
@@ -48,6 +57,7 @@ const Products = () => {
     };
 
     const handleSearch = () => {
+        setLastTranscript('')
         setFinalSearch(search);
     };
 
@@ -76,6 +86,7 @@ const Products = () => {
                                 type="text"
                                 name="Search"
                                 placeholder="S E A R C H...."
+                                defaultValue={transcript || lastTranscript}
                                 className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none " />
                             <span className="absolute inset-y-0 right-0 px-1.5 flex items-center">
                                 <div
@@ -85,8 +96,10 @@ const Products = () => {
                                         <TbCameraSearch className="text-2xl" />
                                         <div className="h-6 border-l-2 border-gray-300 ml-2 mr-1 "></div>
                                         <MdOutlineKeyboardVoice className="text-2xl" onClick={() => {
-                                            // startListening()
-                                            setSearchModal(true)
+                                            setSearch('')
+                                            setFinalSearch('')
+                                            setLastTranscript('')
+                                            startListening()
                                         }} />
                                     </div>
                                 </div>
@@ -180,31 +193,22 @@ const Products = () => {
 
             </div>
 
+            {/* modal */}
             {
-                searchModal && <div className="absolute top-0 left-[38%] z-50">
+                listening && <div className="absolute top-0 left-[38%] z-50">
                     <div className='-mt-14'>
-                        <div className="bg-gray-900 border-4 border-white text-white p-5 h-72 w-[420px]">
+                        <div className="bg-gray-900 text-white p-5 h-72 w-[420px]">
                             <div className='flex justify-end'>
-                                <button onClick={() => setSearchModal(false)} className="btn btn-sm btn-circle btn-ghost">✕</button>
+                                <button onClick={() => stopListening(false)} className="btn btn-sm btn-circle btn-ghost">✕</button>
                             </div>
-                            <h3 className="font-bold text-lg">Hello!</h3>
-                            <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                            <div className='flex flex-col gap-10'>
+                                <h3 className="text-lg">{transcript ? transcript : lastTranscript ? lastTranscript : 'Listening...'}</h3>
+                                <Lottie animationData={lottieImage} loop className="w-full h-40 p-3" autoplay />
+                            </div>
                         </div>
                     </div>
                 </div>
             }
-
-
-            <dialog id="modal" className="modal">
-                <div className="modal-box">
-                    <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    </form>
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click on ✕ button to close</p>
-                </div>
-            </dialog>
 
             {/* product's card */}
             <>

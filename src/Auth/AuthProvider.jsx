@@ -91,7 +91,7 @@ const AuthProvider = ({ children }) => {
         if (transcript.trim() === '') {
           stopListening();
         }
-      }, 5000);
+      }, 4500);
     };
   
     const stopListening = () => {
@@ -110,7 +110,7 @@ const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ Google, RegisterUser, updateUser, LoginUser, User, Logout, loading, setRefresh, refresh ,startListening}}>
+        <AuthContext.Provider value={{ Google, RegisterUser, updateUser, LoginUser, User, Logout, loading, setRefresh, refresh ,startListening, stopListening, listening, transcript}}>
             {children}
         </AuthContext.Provider>
     );
