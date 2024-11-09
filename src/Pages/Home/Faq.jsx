@@ -2,7 +2,7 @@ import img from "../../assets/questions.png"
 
 export default function Faq() {
     return (
-        <div className="max-w-6xl mx-auto  pb-16 pt-6 space-y-8 text-white">
+        <div className="max-w-6xl mx-auto  pb-24 pt-6 space-y-8 text-white">
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
                 {/* title */}
@@ -11,9 +11,9 @@ export default function Faq() {
                 </figure>
 
                 <div className="md:w-[60%] px-7 md:px-0" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                    <div className="join join-vertical w-full border-2 border-[#3CA2FA]">
+                    <div className="join join-vertical w-full border-2 border-[#80EEB4]">
 
-                        <div className="collapse collapse-arrow join-item border-b-2 border-[#3CA2FA]">
+                        <div className="collapse collapse-arrow join-item border-b-2 border-[#80EEB4]">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-xl font-medium ">How can I track my order?</div>
                             <div className="collapse-content">
@@ -21,7 +21,7 @@ export default function Faq() {
                             </div>
                         </div>
 
-                        <div className="collapse collapse-arrow join-item border-b-2 border-[#3CA2FA]">
+                        <div className="collapse collapse-arrow join-item border-b-2 border-[#80EEB4]">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title text-xl font-medium">Do you offer international shipping?</div>
                             <div className="collapse-content">
@@ -29,7 +29,7 @@ export default function Faq() {
                             </div>
                         </div>
 
-                        <div className="collapse collapse-arrow join-item border-b-2 border-[#3CA2FA]">
+                        <div className="collapse collapse-arrow join-item border-b-2 border-[#80EEB4]">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title text-xl font-medium"> How long does delivery take?</div>
                             <div className="collapse-content">
@@ -37,7 +37,7 @@ export default function Faq() {
                             </div>
                         </div>
 
-                        <div className="collapse collapse-arrow join-item border-b-2 border-[#3CA2FA]">
+                        <div className="collapse collapse-arrow join-item border-b-2 border-[#80EEB4]">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title text-xl font-medium">Can I cancel my order?</div>
                             <div className="collapse-content">

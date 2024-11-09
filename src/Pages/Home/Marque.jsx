@@ -13,7 +13,7 @@ import img9 from "../../assets/9.png"
 
 export default function Marque() {
     return (
-        <div className='mb-4'>
+        <div className='pb-24'>
 
             <Marquee>
                 <div className='flex items-center gap-20 p-4 md:p-6 border-b-2 border-[#80EEB4]'>

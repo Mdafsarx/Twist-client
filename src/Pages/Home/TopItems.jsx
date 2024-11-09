@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 
 const TopItems = () => {
     return (
-        <section className="my-16 px-8 md:px-0">
+        <section className="pb-28 px-8 md:px-0">
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 

@@ -15,7 +15,7 @@ const MainLayout = () => {
 
 
     return (
-        <div className='bg-gray-900 overflow-hidden'>
+        <div className='bg-gray-950 overflow-hidden'>
             {
                 spinner
                     ? <div className="flex flex-col items-center justify-center min-h-screen gap-3">

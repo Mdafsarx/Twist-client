@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+  
+  .track {
+    will-change: transform;
+    animation: marquee 25s linear infinite;
+  }
+
+  .track2 {
+    animation: marquee2 25s linear infinite;
+  }
+  
+  @keyframes marquee {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+  @keyframes marquee2 {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(0); }
+  }
+  .MuiRating-iconEmpty {
+    color: #80EEB4 !important;
+  }
+  .MuiRating-iconFilled {
+    color: #80EEB4;
+  }

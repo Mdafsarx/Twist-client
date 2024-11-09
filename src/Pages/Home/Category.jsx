@@ -27,7 +27,7 @@ export default function Category() {
 
 
     return (
-        <section className="text-white pb-10 pt-6 max-w-6xl mx-auto px-7 md:px-0">
+        <section className="text-white pb-20 max-w-6xl mx-auto px-7 md:px-0">
 
             {/* computers */}
             <div className="flex flex-col md:flex-row gap-5 pb-10 border-b border-[#80EEB4]">
