@@ -29,6 +29,12 @@ export default function Category() {
     return (
         <section className="text-white pb-20 max-w-6xl mx-auto px-7 md:px-0">
 
+            {/* headline */}
+            <div className='text-white text-center pb-16 space-y-3'>
+               <h1 className='text-3xl font-bold '>Top picks just for you</h1>
+               <p>Explore our popular products, loved by users for their quality <br /> and innovation. Find your next favorite with Twist's top picks</p>
+            </div>
+
             {/* computers */}
             <div className="flex flex-col md:flex-row gap-5 pb-10 border-b border-[#80EEB4]">
 
@@ -54,7 +60,7 @@ export default function Category() {
                                 <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} />
                             </div>
                             :
-                            computers?.map((data, i) => <SwiperSlide  key={i}><CategoryCard product={data} /></SwiperSlide>)
+                            computers?.map((data, i) => <SwiperSlide key={i}><CategoryCard product={data} /></SwiperSlide>)
                         }
 
                     </Swiper>

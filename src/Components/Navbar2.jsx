@@ -23,7 +23,7 @@ export default function Navbar2() {
 
 
     return (
-        <nav className="fixed top-0 w-full z-50 hidden md:flex items-center font-serif *:text-white ">
+        <nav className="fixed top-0 w-full z-50 hidden md:flex items-center  *:text-white ">
             {/* part-1 */}
             <div className="md:w-[59%] h-[60px] bg-[#3CA2FA] px-4 flex items-center justify-between ">
 
