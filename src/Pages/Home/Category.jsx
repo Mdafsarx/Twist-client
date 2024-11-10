@@ -137,9 +137,9 @@ export default function Category() {
             </div>
 
             {/* more button */}
-            <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="500">
+            {/* <div className={`${more ? "hidden" : "flex"} flex justify-center`} data-aos="zoom-in" data-aos-duration="500">
                 <button onClick={() => setMore(true)} className="btn btn-outline  border-0 text-white uppercase bg-gradient-to-bl from-[#80EEB4] to-[#3CA2FA] hover:text-black">More</button>
-            </div>
+            </div> */}
 
         </section>
     )

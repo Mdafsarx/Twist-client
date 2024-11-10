@@ -6,6 +6,7 @@ import Category from './Category';
 import AllItems from './AllItems';
 import Faq from './Faq';
 import Testimonial from './Testimonial';
+import Features from './Features';
 
 
 const Home = () => {
@@ -16,10 +17,10 @@ const Home = () => {
             <div className='max-w-7xl mx-auto'>
                 <TopItems />
                 <Category />
-                {/* <AllItems /> */}
+                <Features />
             </div>
-                <Testimonial />
-                <Faq />
+            <Testimonial />
+            <Faq />
         </div>
     );
 };
