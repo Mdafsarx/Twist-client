@@ -69,7 +69,7 @@ const Products = () => {
         <div className="max-w-7xl mx-auto space-y-7 md:space-y-16 my-12 pt-10  md:pb-4 md:pt-20">
 
             {/* filter and sort */}
-            <div className="flex flex-col md:flex-row items-center justify-between ">
+            <div className="flex flex-col md:flex-row items-center justify-between text-white">
                 {/* filter , search*/}
                 <div className="flex flex-col md:flex-row items-center gap-5" >
                     {/* search... */}
@@ -93,17 +93,15 @@ const Products = () => {
                                 name="Search"
                                 placeholder="S E A R C H...."
                                 value={search || transcript || lastTranscript}
-                                className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none " />
+                                className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none bg-gray-800" />
                             <span className="absolute inset-y-0 right-0 px-1.5 flex items-center">
                                 <div
                                     type="button"
                                     className="focus:outline-none focus:ring">
                                     <div className="flex items-center">
                                        <TbCameraSearch  onClick={() => document.getElementById('modal_2').showModal()} className="text-2xl" />
-
-
                                         <div className="h-6 border-l-2 border-gray-300 ml-2 mr-1 "></div>
-                                        <MdOutlineKeyboardVoice className={`text-2xl hover:text-[#80EEB4] ${listening ? 'text-[#80EEB4]' : 'text-black'}`} onClick={() => {
+                                        <MdOutlineKeyboardVoice className={`text-2xl hover:text-[#80EEB4] ${listening ? 'text-[#80EEB4]' : ''}`} onClick={() => {
                                             setSearch('')
                                             setFinalSearch('')
                                             setLastTranscript('')
@@ -115,10 +113,9 @@ const Products = () => {
                         </div>
                     </fieldset>
 
-
                     {/* filter */}
                     <select
-                        className="select select-bordered w-full max-w-52"
+                        className="select bg-gray-800 select-bordered w-full max-w-52"
                         onChange={(e) => {
                             if (e.target.value === "All categories") {
                                 setCategory("");
@@ -140,7 +137,7 @@ const Products = () => {
                     </select>
 
                     <select
-                        className="select select-bordered w-full max-w-52"
+                        className="select bg-gray-800 select-bordered w-full max-w-52"
                         onChange={(e) => {
                             if (e.target.value === "All brands") {
                                 setBrand("");
@@ -162,7 +159,7 @@ const Products = () => {
                     </select>
 
                     <select
-                        className="select select-bordered w-full max-w-52"
+                        className="select bg-gray-800 select-bordered w-full max-w-52"
                         onChange={(e) => {
                             if (e.target.value === "All price") {
                                 setPrice(0);
@@ -186,10 +183,11 @@ const Products = () => {
                             2000-3000 <span>$</span>
                         </option>
                     </select>
+                    
                 </div>
 
                 {/* sort */}
-                <select className="select select-bordered w-full max-w-24 mt-4 md:mt-0" onClick={(e) => {
+                <select className="select bg-gray-800 select-bordered w-full max-w-24 mt-4 md:mt-0" onClick={(e) => {
                     setSort(e.target.value)
                 }} data-aos="zoom-in" data-aos-duration="500" data-aos-delay="800">
                     <option value={""} disabled selected>Sort</option>
@@ -201,11 +199,11 @@ const Products = () => {
 
             </div>
 
-            {/* modal */}
+            {/* voice search modal */}
             {
                 listening && <div className="absolute top-0 left-[38%] z-50">
                     <div className='-mt-14'>
-                        <div className="bg-gray-900 text-white p-5 h-72 w-[420px]">
+                        <div className="bg-gray-800 text-white p-5 h-72 w-[420px]">
                             <div className='flex justify-end'>
                                 <button onClick={() => stopListening(false)} className="btn btn-sm btn-circle btn-ghost">✕</button>
                             </div>
@@ -217,6 +215,7 @@ const Products = () => {
                     </div>
                 </div>
             }
+            {/* take image for search modal */}
             {
                 <Take_Image_Modal />
             }

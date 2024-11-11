@@ -10,8 +10,7 @@ import { AuthContext } from '../Auth/AuthProvider';
 
 export default function Navbar2() {
 
-    const { User, Logout, loading } = React.useContext(AuthContext);
-
+    const { User, Logout, loading, totalCart, totalCartLoading } = React.useContext(AuthContext);
     const pages =
         <>
             <NavLink to={'/'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'} >Home</NavLink>
@@ -20,6 +19,8 @@ export default function Navbar2() {
 
             <NavLink to={'/Contact'} className={({ isActive }) => isActive ? 'md:btn md:btn-sm md:btn-outline text-[#80EEB4] md:text-[#ffffff] md:border-[#80EEB4] md:border-2' : 'hover:text-[#80EEB4] hover:underline'}>contact</NavLink>
         </>
+
+
 
 
     return (
@@ -46,21 +47,21 @@ export default function Navbar2() {
                         ? <ColorRing visible={true} color="#3CA2FA" ariaLabel="color-ring-loading" wrapperClass="color-ring-wrapper" colors={['#3CA2FA', '#80EEB4', '#3CA2FA', '#80EEB4', '#3CA2FA']} data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" />
                         : <>
                             {/* cart badge */}
-                           <NavLink to={'/Cart'}>
-                             <Stack>
-                                 <Badge
-                                     badgeContent={4}
-                                     color="primary"
-                                     sx={{
-                                         '& .MuiBadge-badge': {
-                                             backgroundColor: '#ffffff',
-                                             color: '#3CA2FA'
-                                         }
-                                     }}>
-                                     <IoMdCart className='text-3xl text-[#3CA2FA] font-bold' />
-                                 </Badge>
-                             </Stack>
-                           </NavLink >
+                            <NavLink to={'/Cart'}>
+                                <Stack>
+                                    <Badge
+                                        badgeContent={ totalCart?.length || '0'}
+                                        color="primary"
+                                        sx={{
+                                            '& .MuiBadge-badge': {
+                                                backgroundColor: '#ffffff',
+                                                color: '#3CA2FA'
+                                            }
+                                        }}>
+                                        <IoMdCart className='text-3xl text-[#3CA2FA] font-bold' />
+                                    </Badge>
+                                </Stack>
+                            </NavLink >
 
                             {/* login */}
                             <Link to={'/Login'} className="btn text-white bg-gradient-to-l from-[#3CA2FA] to-[#3CA2FA] border-2 border-[#3CA2FA] hover:bg-gradient-to-r hover:border-[#3CA2FA]">Login</Link>

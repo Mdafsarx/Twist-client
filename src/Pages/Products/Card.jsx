@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export default function Card({ product }) {
     const { productName, description, price, category, ratings, creationDate, image, brand } = product || {};
     const Rating = Math.round(ratings)
-    const { User } = useContext(AuthContext);
+    const { User, totalCartRefetch } = useContext(AuthContext);
     const newProduct = { productName, description, price, category, ratings, creationDate, image, brand, email: User?.email }
     const handleCart = () => {
         if (!User?.email) return toast.error("Login first", {
@@ -18,13 +18,16 @@ export default function Card({ product }) {
         })
         axios.post(`${import.meta.env.VITE_HTTP}/Cart`, newProduct)
             .then(data => {
-                if (data.data.insertedId) toast.success("Added successful", {
-                    style: {
-                        borderRadius: '10px',
-                        background: '#000000',
-                        color: '#fff',
-                    },
+                totalCartRefetch()
+                if (data.data.insertedId) {
+                toast.success("Added successful", {
+                        style: {
+                            borderRadius: '10px',
+                            background: '#000000',
+                            color: '#fff',
+                        },
                 })
+                }
             })
             .catch(error => toast.error(error.message, {
                 style: {
@@ -38,7 +41,7 @@ export default function Card({ product }) {
         <>
             <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg w-72 md:w-auto" data-aos="fade-up" data-aos-duration="500" >
 
-                <div className="px-4 py-2">
+                <div className="px-4 py-2 bg-gray-800 text-white">
                     <h1 className="md:text-lg font-black text-[#3CA2FA] uppercase">{productName}</h1>
                     <div className="hidden md:flex items-center gap-2">
                         <p><span className="font-bold">Brand:</span> {brand}</p>

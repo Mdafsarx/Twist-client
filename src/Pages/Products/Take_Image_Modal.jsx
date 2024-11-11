@@ -1,7 +1,11 @@
 import React from 'react';
-import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { Button, message, Upload } from 'antd';
+import { RiImageAddFill } from 'react-icons/ri';
 const { Dragger } = Upload;
+import { UploadOutlined } from '@ant-design/icons';
+import { MdOutlineFileUpload } from 'react-icons/md';
+
+
 const props = {
     name: 'file',
     multiple: true,
@@ -24,24 +28,33 @@ const props = {
 
 
 export default function Take_Image_Modal() {
+
     return (
         <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <dialog id="modal_2" className="modal">
-                <div className="modal-box">
+                <div className="modal-box bg-gray-900 *:text-white ">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button className="text-white absolute right-2.5 top-2">✕</button>
                     </form>
-                    <Dragger {...props}>
-                        <p className="ant-upload-drag-icon">
-                            <InboxOutlined />
-                        </p>
-                        <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                        <p className="ant-upload-hint">
-                            Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-                            banned files.
-                        </p>
+
+                    <div className='text-center mb-5 space-y-1.5'>
+                        <h3 className='text-xl font-bold'>Search by image</h3>
+                        <p>Search and find  similar images instantly</p>
+                    </div>
+
+                    <Dragger className='' style={{ borderColor: '#80EEB4' }} {...props}>
+                        <div className='flex justify-center'>
+                            <RiImageAddFill className='text-4xl mb-1' />
+                        </div>
+                        <p className="font-medium my-1">Click or drag file to this area to upload</p>
+                        <p className="font-medium">or</p>
+                        <Upload {...props}>
+                            <button className='gap-x-1 bg-[linear-gradient(110deg,#80EEB433,45%,#80EEB499,55%,#80EEB433)] bg-[length:200%_100%] rounded-sm py-1.5 px-3 text-[#80EEB4] border-[#80EEB4] border-[1px] hover:bg-[#80EEB466] animate-shine '> <p className='flex items-center gap-1'>
+                                <MdOutlineFileUpload className='text-xl'/> Click to Upload
+                            </p> 
+                            </button>
+                        </Upload>
                     </Dragger>
                 </div>
             </dialog>
