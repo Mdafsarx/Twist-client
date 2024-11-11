@@ -15,12 +15,11 @@ import Lottie from 'lottie-react';
 import lottieImage from '../../../public/Animation - 1731025901682.json'
 import lottieImage2 from '../../../public/Animation empty - 1731041962497.json'
 import "./button.css";
+import Take_Image_Modal from './Take_Image_Modal';
 
 
 
 const Products = () => {
-    // paginate
-    //Todo: paginate api buja
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
@@ -93,16 +92,18 @@ const Products = () => {
                                 type="text"
                                 name="Search"
                                 placeholder="S E A R C H...."
-                                value={search ||  transcript || lastTranscript}
+                                value={search || transcript || lastTranscript}
                                 className="w-auto md:w-96 py-3.5 pl-12  text-sm rounded-md focus:outline-none " />
                             <span className="absolute inset-y-0 right-0 px-1.5 flex items-center">
                                 <div
                                     type="button"
                                     className="focus:outline-none focus:ring">
                                     <div className="flex items-center">
-                                        <TbCameraSearch className="text-2xl" />
+                                       <TbCameraSearch  onClick={() => document.getElementById('modal_2').showModal()} className="text-2xl" />
+
+
                                         <div className="h-6 border-l-2 border-gray-300 ml-2 mr-1 "></div>
-                                        <MdOutlineKeyboardVoice className={`text-2xl hover:text-[#80EEB4] ${listening ? 'text-[#80EEB4]': 'text-black'}`} onClick={() => {
+                                        <MdOutlineKeyboardVoice className={`text-2xl hover:text-[#80EEB4] ${listening ? 'text-[#80EEB4]' : 'text-black'}`} onClick={() => {
                                             setSearch('')
                                             setFinalSearch('')
                                             setLastTranscript('')
@@ -215,6 +216,9 @@ const Products = () => {
                         </div>
                     </div>
                 </div>
+            }
+            {
+                <Take_Image_Modal />
             }
 
             {/* product's card */}
